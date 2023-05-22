@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: eureka-jar
+          default-label: gateway-jar
           uri: https://github.com/anpeni/microservicios-app
           search-paths: config-data
   application:
