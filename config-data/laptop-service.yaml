@@ -12,7 +12,7 @@ eureka:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/microserviciosdb
-    username: root
+    username: postgres
     password: '12345'
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
