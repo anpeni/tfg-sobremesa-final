@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: variables
+          default-label: bd
           uri: https://github.com/anpeni/microserviciospostgre
           search-paths: config-data
   application:
