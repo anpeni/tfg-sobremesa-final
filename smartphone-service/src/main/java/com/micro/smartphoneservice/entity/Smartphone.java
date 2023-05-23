@@ -16,6 +16,7 @@ public class Smartphone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
+    private String marca;
     private String model;
     private int userId;
 

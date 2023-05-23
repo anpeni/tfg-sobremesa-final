@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: gateway-jar
+          default-label: postgresql
           uri: https://github.com/anpeni/microservicios-app
           search-paths: config-data
   application:

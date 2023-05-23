@@ -1,4 +1,50 @@
 Manifest-Version: 1.0
 Main-Class: com.micro.gatewayestaticoservice.GatewayEstaticoServiceAppli
  cation
+Class-Path: bcutil-jdk15on-1.69.jar httpclient-4.5.14.jar netty-codec-ht
+ tp-4.1.92.Final.jar jackson-core-2.14.3.jar spring-cloud-starter-config
+ -4.0.2.jar jboss-logging-3.5.0.Final.jar jakarta.servlet-api-6.0.0.jar 
+ spring-boot-3.0.7.jar spring-core-6.0.9.jar netty-resolver-dns-4.1.92.F
+ inal.jar spring-context-6.0.9.jar micrometer-observation-1.10.7.jar jul
+ -to-slf4j-2.0.7.jar spring-cloud-starter-4.0.2.jar netty-handler-4.1.92
+ .Final.jar netty-resolver-dns-native-macos-4.1.92.Final-osx-x86_64.jar 
+ spring-cloud-context-4.0.2.jar spring-cloud-loadbalancer-4.0.2.jar serv
+ o-core-0.12.21.jar spring-jcl-6.0.9.jar spring-boot-autoconfigure-3.0.7
+ .jar spring-web-6.0.9.jar netty-resolver-4.1.92.Final.jar spring-aop-6.
+ 0.9.jar spring-cloud-starter-bootstrap-4.0.2.jar httpcore5-5.1.5.jar ne
+ tty-common-4.1.92.Final.jar netty-transport-native-epoll-4.1.92.Final-l
+ inux-x86_64.jar spring-cloud-netflix-eureka-client-4.0.1.jar reactor-ne
+ tty-core-1.1.7.jar mxparser-1.2.2.jar httpclient5-5.1.4.jar stringtempl
+ ate-3.2.1.jar eureka-client-2.0.0.jar netty-transport-classes-epoll-4.1
+ .92.Final.jar commons-math-2.2.jar jettison-1.4.0.jar jackson-annotatio
+ ns-2.14.3.jar jakarta.validation-api-3.0.2.jar antlr-2.7.7.jar bcprov-j
+ dk15on-1.69.jar tomcat-embed-el-10.1.8.jar netty-codec-http2-4.1.92.Fin
+ al.jar spring-boot-starter-reactor-netty-3.0.7.jar bcpkix-jdk15on-1.69.
+ jar classmate-1.5.1.jar netty-codec-4.1.92.Final.jar netty-transport-na
+ tive-unix-common-4.1.92.Final.jar eureka-core-2.0.0.jar guava-19.0.jar 
+ spring-webflux-6.0.9.jar jakarta.inject-api-2.0.1.jar logback-core-1.4.
+ 7.jar logback-classic-1.4.7.jar log4j-api-2.19.0.jar spring-cloud-start
+ er-loadbalancer-4.0.2.jar netty-resolver-dns-classes-macos-4.1.92.Final
+ .jar snakeyaml-1.33.jar reactor-core-3.5.6.jar stax2-api-4.2.1.jar spri
+ ng-security-crypto-6.0.3.jar netflix-infix-0.3.0.jar micrometer-commons
+ -1.10.7.jar spring-cloud-config-client-4.0.2.jar spring-cloud-starter-g
+ ateway-4.0.4.jar antlr-runtime-3.4.jar spring-security-rsa-1.0.11.RELEA
+ SE.jar spring-boot-starter-logging-3.0.7.jar spring-cloud-commons-4.0.2
+ .jar commons-codec-1.15.jar jackson-module-parameter-names-2.14.3.jar s
+ pring-beans-6.0.9.jar httpcore-4.4.16.jar jakarta.annotation-api-2.1.1.
+ jar spring-expression-6.0.9.jar spring-cloud-starter-netflix-eureka-cli
+ ent-4.0.1.jar reactor-netty-http-1.1.7.jar jackson-datatype-jsr310-2.14
+ .3.jar netty-codec-dns-4.1.92.Final.jar netty-handler-proxy-4.1.92.Fina
+ l.jar commons-jxpath-1.3.jar spring-boot-starter-validation-3.0.7.jar x
+ mlpull-1.1.3.1.jar joda-time-2.3.jar log4j-to-slf4j-2.19.0.jar jackson-
+ databind-2.14.3.jar hibernate-validator-8.0.0.Final.jar httpcore5-h2-5.
+ 1.5.jar spring-boot-starter-3.0.7.jar netty-transport-4.1.92.Final.jar 
+ netty-codec-socks-4.1.92.Final.jar reactive-streams-1.0.4.jar spring-bo
+ ot-starter-cache-3.0.7.jar spring-cloud-gateway-server-4.0.4.jar spring
+ -boot-starter-webflux-3.0.7.jar commons-configuration-1.10.jar netty-bu
+ ffer-4.1.92.Final.jar xstream-1.4.19.jar spring-context-support-6.0.9.j
+ ar spring-boot-starter-json-3.0.7.jar slf4j-api-2.0.7.jar commons-lang-
+ 2.6.jar reactor-extra-3.5.1.jar gson-2.9.1.jar woodstox-core-6.2.1.jar 
+ jackson-datatype-jdk8-2.14.3.jar jakarta.ws.rs-api-3.1.0.jar netflix-ev
+ entbus-0.3.0.jar evictor-1.0.0.jar
 
