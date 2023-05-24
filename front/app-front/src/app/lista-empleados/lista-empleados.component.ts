@@ -11,17 +11,22 @@ export class ListaEmpleadosComponent implements OnInit {
 
   empleados: Employee[]
 
-  constructor (private employeeService:EmployeeService) {}
+  constructor(private employeeService: EmployeeService) { }
 
-  ngOnInit(): void{
+  private obtenerEmpleado() {
+    this.employeeService.obtenerListaEmpleados().subscribe(dato => {
+      this.empleados = dato
+    })
+  }
+
+  ngOnInit(): void {
     this.obtenerEmpleado()
 
   }
 
-  private obtenerEmpleado(){
-    this.employeeService.obtenerListaEmpleados().subscribe(dato => {
-      this.empleados=dato
-    })
-  }
+  // actualizarEmpleado(id: number) {
+  //   this.router.navigate(['actualizar-empleado,id'])
+
+  // }
 
 }

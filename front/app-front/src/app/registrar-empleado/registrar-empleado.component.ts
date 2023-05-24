@@ -38,8 +38,9 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
 
   onSubmit() {
-    //this.guardarEmpleado();
+    
     this.irALaListaDeEmpleados()
+    this.guardarEmpleado();
   }
 
 }

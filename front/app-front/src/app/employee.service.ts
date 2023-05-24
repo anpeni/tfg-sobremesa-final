@@ -17,8 +17,22 @@ export class EmployeeService {
     return this.httpClient.get<Employee[]>(`${this.baseURL}`);
   }
 
+  obtenerEmpleado(id:number):Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseURL}${id}`);
+  }
+
+
   registrarEmpleado(empleado: Employee):Observable<Object>{
-    return this.httpClient.post(`${this.baseURL1}`,empleado)
+    return this.httpClient.post(`${this.baseURL}`,empleado)
+
+  }
+
+  eliminarEmpleado(id:number):Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}${id}`);
+  }
+
+  actualizarEmpleado(id:number,empleado: Employee):Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}${id}`,empleado)
 
   }
 }
