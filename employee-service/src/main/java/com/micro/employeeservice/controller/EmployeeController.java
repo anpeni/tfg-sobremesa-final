@@ -42,6 +42,21 @@ public class EmployeeController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> actualizarEmpleado(@PathVariable("id") int id, @RequestBody Employee employee){
+        Employee employeeNew = employeeService.GetById(id);
+
+        if (employeeNew == null) return ResponseEntity.notFound().build();
+
+        employeeNew.setName(employee.getName());
+        employeeNew.setApellidos(employee.getApellidos());
+        employeeNew.setEmail(employee.getEmail());
+
+        Employee employeeActualizado = employeeService.save(employeeNew);
+        return ResponseEntity.ok(employeeActualizado);
+
+    }
+
     @PostMapping
     public ResponseEntity<Employee> save(@RequestBody Employee employee){
 
