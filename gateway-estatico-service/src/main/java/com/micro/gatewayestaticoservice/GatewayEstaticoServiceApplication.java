@@ -10,4 +10,6 @@ public class GatewayEstaticoServiceApplication {
 		SpringApplication.run(GatewayEstaticoServiceApplication.class, args);
 	}
 
+
+
 }

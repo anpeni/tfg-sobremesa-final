@@ -7,13 +7,14 @@ import com.micro.employeeservice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
 
     @Autowired
@@ -47,6 +48,14 @@ public class EmployeeController {
         Employee employeeNew = employeeService.save(employee);
 
         return ResponseEntity.ok(employeeNew);
+    }
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/guardarempleado")
+    public Employee guardar(@RequestBody Employee employee){
+
+        Employee employeeNew = employeeService.save(employee);
+
+        return employeeNew;
     }
 
     @PostMapping("/savelaptop/{userid}")

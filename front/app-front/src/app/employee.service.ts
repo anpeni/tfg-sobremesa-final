@@ -9,6 +9,7 @@ import { Employee } from './employee';
 export class EmployeeService {
 
   private baseURL="http://localhost:8080/employee";
+  private baseURL1="http://localhost:8080/employee/guardarempleado";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -17,7 +18,7 @@ export class EmployeeService {
   }
 
   registrarEmpleado(empleado: Employee):Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`,empleado)
+    return this.httpClient.post(`${this.baseURL1}`,empleado)
 
   }
 }
