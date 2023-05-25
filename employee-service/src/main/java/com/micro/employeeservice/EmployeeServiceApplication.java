@@ -20,9 +20,16 @@ public class EmployeeServiceApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+				
+				registry.addMapping("/**") // Permitir acceso a todas las rutas
+						.allowedOrigins("http://localhost:4200") // Reemplazar con tu dominio
+						.allowedMethods("GET", "POST", "PUT", "DELETE") // Permitir estos métodos
+						.allowCredentials(true)
+						.maxAge(3600);
 			}
-		};
-	}
 
+
+		};
+
+	}
 }

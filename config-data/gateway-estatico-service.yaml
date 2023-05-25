@@ -29,13 +29,16 @@ spring:
           uri: lb://smartphone-service
           predicates: 
             - Path=/smartphone/**   
-    globalcors:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:4200"
-            allowedMethods:
-            - GET
-            - POST
-            - DELETE
-            - PUT        
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
+      routes:
+        - id: employee-service
+          uri: lb://employee-service
+          ...       
 
