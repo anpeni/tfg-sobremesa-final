@@ -37,8 +37,6 @@ spring:
               allowedOrigins: "*"
               allowedMethods: "*"
               allowedHeaders: "*"
-      routes:
-        - id: employee-service
-          uri: lb://employee-service
-          ...       
+
+              
 
