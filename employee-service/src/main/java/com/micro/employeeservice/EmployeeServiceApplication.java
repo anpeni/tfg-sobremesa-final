@@ -15,7 +15,7 @@ public class EmployeeServiceApplication {
 		SpringApplication.run(EmployeeServiceApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
@@ -31,5 +31,5 @@ public class EmployeeServiceApplication {
 
 		};
 
-	}
+	}*/
 }

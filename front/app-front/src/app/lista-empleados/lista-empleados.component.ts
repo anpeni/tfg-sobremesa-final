@@ -42,7 +42,7 @@ export class ListaEmpleadosComponent implements OnInit {
     })}
 
     verD(id: number) {
-      this.router.navigate(['empleado-detalle', id])
+      this.router.navigate(['empleado-detalles', id])
       }
 
   

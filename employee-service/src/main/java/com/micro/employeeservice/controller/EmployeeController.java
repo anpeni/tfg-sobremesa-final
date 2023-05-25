@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin(origins = "http://http://localhost:4200", exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"}, allowCredentials = "true")
+//@CrossOrigin(origins = "http://http://localhost:4200", exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"}, allowCredentials = "true")
 //@CrossOrigin(exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"})
 public class EmployeeController {
 
