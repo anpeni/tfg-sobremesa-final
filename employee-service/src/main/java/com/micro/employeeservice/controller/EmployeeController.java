@@ -57,6 +57,18 @@ public class EmployeeController {
 
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarEmpleado(@PathVariable("id") int id){
+        Employee employeeNew = employeeService.GetById(id);
+
+        if (employeeNew == null)
+            return ResponseEntity.notFound().build();
+
+        employeeService.borrarUsuario(id);
+
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping
     public ResponseEntity<Employee> save(@RequestBody Employee employee){
 
@@ -131,6 +143,7 @@ public class EmployeeController {
         return ResponseEntity.ok(result);
 
     }
+
 
 
 

@@ -18,7 +18,7 @@ export class EmployeeService {
   }
 
   obtenerEmpleado(id:number):Observable<Employee>{
-    return this.httpClient.get<Employee>(`${this.baseURL}${id}`);
+    return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
   }
 
 
@@ -28,11 +28,11 @@ export class EmployeeService {
   }
 
   eliminarEmpleado(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}${id}`);
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
   actualizarEmpleado(id:number,empleado: Employee):Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}${id}`,empleado)
+    return this.httpClient.put(`${this.baseURL}/${id}`,empleado)
 
   }
 }

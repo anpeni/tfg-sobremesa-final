@@ -15,11 +15,15 @@
             <td>{{employee.name}}</td>
             <td>{{employee.apellidos}}</td>
             <td>{{employee.email}}</td>
-            <!-- <td>
-                <button (click)="actualizarEmpleado(empleado.id)" class="btn btn-info"></button>
-                <button (click)="eliminarEmpleado(empleado.id)" class="btn btn-info" style="margin-left : 10px"></button>
-            </td> -->
+             <td>
+                <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button> 
+                <button (click)="eliminarE(employee.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+                <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
+            </td> 
         </tr>
     </tbody>
 
 </table>
+<div>
+     <button (click)="crearEmpleado()" class="btn btn-primary"  style="margin-left : 10px">Nuevo empleado</button> 
+</div>

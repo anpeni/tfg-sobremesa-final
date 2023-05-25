@@ -38,6 +38,11 @@ public class EmployeeService {
         return employeeRepository.findById(id).orElse(null);
     }
 
+    public void borrarUsuario(int id) {
+
+        employeeRepository.deleteById(id);
+    }
+
     public Employee save(Employee employee) {
 
         Employee newEmployee = employeeRepository.save(employee);

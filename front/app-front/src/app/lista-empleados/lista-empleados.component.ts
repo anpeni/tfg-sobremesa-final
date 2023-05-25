@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-empleados',
@@ -11,7 +12,7 @@ export class ListaEmpleadosComponent implements OnInit {
 
   empleados: Employee[]
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService,  private router: Router) { }
 
   private obtenerEmpleado() {
     this.employeeService.obtenerListaEmpleados().subscribe(dato => {
@@ -24,9 +25,26 @@ export class ListaEmpleadosComponent implements OnInit {
 
   }
 
-  // actualizarEmpleado(id: number) {
-  //   this.router.navigate(['actualizar-empleado,id'])
+    actualizarEmpleado(id: number) {
+      this.router.navigate(['actualizar-empleado',id])
 
-  // }
+    }
+
+    crearEmpleado(){
+      this.router.navigate(['registrar-empleado'])
+    }
+
+  eliminarE(id: number) {
+    this.employeeService.eliminarEmpleado(id).subscribe(dato => {
+      console.log(dato);
+      this.obtenerEmpleado()
+
+    })}
+
+    verD(id: number) {
+      this.router.navigate(['empleado-detalle', id])
+      }
+
+  
 
 }
