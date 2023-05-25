@@ -9,17 +9,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://http://localhost:4200", exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"}, allowCredentials = "true")
+//@CrossOrigin(exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"})
 public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
 
+    //@CrossOrigin(origins = "http://localhost:4200")
 
     @GetMapping
     public ResponseEntity<List<Employee>> getAll(){
@@ -56,9 +59,9 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeActualizado);
 
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEmpleado(@PathVariable("id") int id){
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/empleados/{id}")
+    public ResponseEntity<Map<String,Boolean>> eliminarEmpleado(@PathVariable("id") int id){
         Employee employeeNew = employeeService.GetById(id);
 
         if (employeeNew == null)
@@ -66,9 +69,11 @@ public class EmployeeController {
 
         employeeService.borrarUsuario(id);
 
-        return ResponseEntity.ok().build();
+        Map<String, Boolean> respuesta = new HashMap<>();
+        respuesta.put("eliminar",Boolean.TRUE);
+        return ResponseEntity.ok(respuesta);
     }
-
+    //@CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public ResponseEntity<Employee> save(@RequestBody Employee employee){
 

@@ -10,6 +10,7 @@ export class EmployeeService {
 
   private baseURL="http://localhost:8080/employee";
   private baseURL1="http://localhost:8080/employee/guardarempleado";
+  private baseURL2="http://localhost:8080/employee/empleados";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -28,7 +29,7 @@ export class EmployeeService {
   }
 
   eliminarEmpleado(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
+    return this.httpClient.delete(`${this.baseURL2}/${id}`);
   }
 
   actualizarEmpleado(id:number,empleado: Employee):Observable<Object>{

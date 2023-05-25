@@ -7,3 +7,4 @@ C:\Users\p-aperez\pruebas\docker\microservicios-docker\employee-service\src\main
 C:\Users\p-aperez\pruebas\docker\microservicios-docker\employee-service\src\main\java\com\micro\employeeservice\EmployeeServiceApplication.java
 C:\Users\p-aperez\pruebas\docker\microservicios-docker\employee-service\src\main\java\com\micro\employeeservice\feignclient\SmartphoneFeignClient.java
 C:\Users\p-aperez\pruebas\docker\microservicios-docker\employee-service\src\main\java\com\micro\employeeservice\model\Laptop.java
+C:\Users\p-aperez\pruebas\docker\microservicios-docker\employee-service\src\main\java\com\micro\employeeservice\filter\CorsFilter.java

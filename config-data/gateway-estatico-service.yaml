@@ -28,5 +28,14 @@ spring:
         - id: smartphone-service
           uri: lb://smartphone-service
           predicates: 
-            - Path=/smartphone/**           
+            - Path=/smartphone/**   
+    globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+            - GET
+            - POST
+            - DELETE
+            - PUT        
 
