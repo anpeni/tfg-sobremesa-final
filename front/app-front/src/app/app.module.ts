@@ -9,6 +9,8 @@ import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-emple
 import { FormsModule } from '@angular/forms';
 import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-empleado.component';
 import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles.component';
+import { ListaLaptopComponent } from './lista-laptop/lista-laptop.component';
+import { RegistrarLaptopComponent } from './registrar-laptop/registrar-laptop.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles
     ListaEmpleadosComponent,
     RegistrarEmpleadoComponent,
     ActualizarEmpleadoComponent,
-    EmpleadoDetallesComponent
+    EmpleadoDetallesComponent,
+    ListaLaptopComponent,
+    RegistrarLaptopComponent
   ],
   imports: [
     BrowserModule,

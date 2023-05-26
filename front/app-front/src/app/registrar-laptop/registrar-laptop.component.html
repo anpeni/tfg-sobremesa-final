@@ -1,0 +1,33 @@
+<div class="col-md-6 mx-auto">
+    <h3 class="text-center">Registro de laptop</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group m-3">
+            <label class ="mb-2">Modelo :</label>
+            <input type="text"
+            class="form-control"
+            id = "modelo"
+            [(ngModel)]="laptop.model"
+            name = "modelo">
+        </div>
+        <div class="form-group m-3">
+            <label class ="mb-2">Marca :</label>
+            <input type="text"
+            class="form-control"
+            id = "marca"
+            [(ngModel)]="laptop.marca"
+            name = "marca">
+        </div>
+        <div class="form-group m-3">
+            <label class ="mb-2">Id Empleado :</label>
+            <input type="number"
+            class="form-control"
+            id = "userId"
+            [(ngModel)]="laptop.userId"
+            name = "userId">
+        </div>
+        <button class="btn btn-success m-3">Guardar</button>
+        
+
+    </form>
+</div>
+

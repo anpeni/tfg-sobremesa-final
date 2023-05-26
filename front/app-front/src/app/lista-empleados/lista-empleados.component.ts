@@ -34,6 +34,10 @@ export class ListaEmpleadosComponent implements OnInit {
       this.router.navigate(['registrar-empleado'])
     }
 
+    crearLaptopId(id: number){
+      this.router.navigate(['registrar-laptop-id',id])
+    }
+
   eliminarE(id: number) {
     this.employeeService.eliminarEmpleado(id).subscribe(dato => {
       console.log(dato);

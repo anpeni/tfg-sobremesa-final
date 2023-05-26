@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from './employee';
+import { Laptop } from './laptop';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class EmployeeService {
   private baseURL="http://localhost:8080/employee";
   private baseURL1="http://localhost:8080/employee/guardarempleado";
   private baseURL2="http://localhost:8080/employee/empleados";
+  private baseURL3="http://localhost:8080/employee/savelaptop";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -25,6 +27,11 @@ export class EmployeeService {
 
   registrarEmpleado(empleado: Employee):Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,empleado)
+
+  }
+
+  registrarLaptopId(id:number, laptop:Laptop):Observable<Object>{
+    return this.httpClient.post(`${this.baseURL3}/${id}`,laptop);
 
   }
 

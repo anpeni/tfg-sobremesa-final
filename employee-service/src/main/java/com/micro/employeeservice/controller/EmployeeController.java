@@ -114,6 +114,8 @@ public class EmployeeController {
         return ResponseEntity.ok(smartphoneNew);
     }
 
+
+
     @GetMapping("/laptop/{employeeId}")
     public ResponseEntity<List<Laptop>> getAllByIdEmployee(@PathVariable("employeeId") int employeeId){
         Employee employeeNew = employeeService.GetById(employeeId);

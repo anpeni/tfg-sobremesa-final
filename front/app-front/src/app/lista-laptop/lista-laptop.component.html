@@ -1,0 +1,30 @@
+<h2>Lista de laptop</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>id</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>userId</th>
+            <th>acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let laptop of laptops ">
+            <td>{{laptop.id}}</td>
+            <td>{{laptop.marca}}</td>
+            <td>{{laptop.model}}</td>
+            <td>{{laptop.userId}}</td>
+             <!-- <td>
+                <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button> 
+                <button (click)="eliminarE(employee.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+                <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
+            </td>  -->
+        </tr>
+    </tbody>
+
+</table>
+<div>
+     <button (click)="crearLaptop()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>  
+</div>
+
