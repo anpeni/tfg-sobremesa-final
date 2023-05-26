@@ -22,6 +22,10 @@ export class ListaLaptopComponent implements OnInit{
     })
   }
 
+  crearLaptop(){
+    this.router.navigate(['registrar-laptop'])
+  }
+
 
   eliminarL(id: number) {
     this.employeeService.eliminarLaptop(id).subscribe(dato => {

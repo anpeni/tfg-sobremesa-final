@@ -1,12 +1,12 @@
 <div class="col-md-6 mx-auto">
-    <h3 class="text-center">Registro de laptop</h3>
+    <h3 class="text-center">Registro de smartphone</h3>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group m-3">
             <label class ="mb-2">Modelo :</label>
             <input type="text"
             class="form-control"
             id = "model"
-            [(ngModel)]="laptop.model"
+            [(ngModel)]="smartphone.model"
             name = "model">
         </div>
         <!-- <div class="form-group m-3">
@@ -19,18 +19,17 @@
         </div> -->
         <div class="form-group m-3">
             <label class="mb-2">Marca :</label>
-            <select class="form-select" aria-label="Default select example" id="marca" [(ngModel)]="laptop.marca" name="marca">
+            <select class="form-select" aria-label="Default select example" id="marca" [(ngModel)]="smartphone.marca" name="marca">
                 <option selected disabled>Seleccione marca</option>
                 <option value="Apple">Apple</option>
-                <option value="Lenovo">Lenovo</option>
-                <option value="Acer">Acer</option>
-                <option value="HP">HP</option>
-                <option value="DELL">DELL</option>
+                <option value="Lenovo">Motorola</option>
+                <option value="Acer">Samsung</option>
+                <option value="HP">Xiaomi</option>
             </select>
           </div>
         <div class="form-group m-3">
             <label class="mb-2">Empleado :</label>
-            <select class="form-select" aria-label="Default select example" id="empleado" [(ngModel)]="laptop.userId" name="empleado">
+            <select class="form-select" aria-label="Default select example" id="empleado" [(ngModel)]="smartphone.userId" name="empleado">
                 <option selected disabled>Seleccione empleado</option>
                 <option *ngFor="let empleado of empleados" [value]="empleado.id">
                 {{empleado.id}} - {{empleado.name}} {{empleado.apellidos}}
@@ -38,7 +37,7 @@
             </select>
           </div>
         <button class="btn btn-success m-3">Guardar</button>
-        <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeLaptops()">Cancelar</button>
+        <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeSmartphone()">Cancelar</button>
 
     </form>
 </div>

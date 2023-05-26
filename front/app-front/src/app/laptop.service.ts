@@ -21,8 +21,8 @@ export class LaptopService {
     return this.httpClient.get<Laptop>(`${this.baseURL}/${id}`);
   }
 
-  // registrarLaptop(laptop: Laptop):Observable<Object>{
-  //   return this.httpClient.post(`${this.baseURL}`,laptop)
+  registrarLaptop(laptop: Laptop):Observable<Object>{
+     return this.httpClient.post(`${this.baseURL}`,laptop)
 
-  // }
+   }
 }

@@ -34,5 +34,10 @@ public class SmartphoneService {
 
         return smartphoneRepository.findByUserId(userId);
     }
+
+    public void borrarSmartphone(int id) {
+
+        smartphoneRepository.deleteById(id);
+    }
 }
 

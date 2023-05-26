@@ -12,6 +12,9 @@ import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles
 import { ListaLaptopComponent } from './lista-laptop/lista-laptop.component';
 import { RegistrarLaptopComponent } from './registrar-laptop/registrar-laptop.component';
 import { RegistrarLaptopSinempleadoComponent } from './registrar-laptop-sinempleado/registrar-laptop-sinempleado.component';
+import { ListaSmartphoneComponent } from './lista-smartphone/lista-smartphone.component';
+import { RegistrarSmartphoneComponent } from './registrar-smartphone/registrar-smartphone.component';
+import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-sinempleado/registrar-smartphone-sinempleado.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { RegistrarLaptopSinempleadoComponent } from './registrar-laptop-sinemple
     EmpleadoDetallesComponent,
     ListaLaptopComponent,
     RegistrarLaptopComponent,
-    RegistrarLaptopSinempleadoComponent
+    RegistrarLaptopSinempleadoComponent,
+    ListaSmartphoneComponent,
+    RegistrarSmartphoneComponent,
+    RegistrarSmartphoneSinempleadoComponent
   ],
   imports: [
     BrowserModule,

@@ -6,13 +6,20 @@ import { RegistrarLaptopComponent } from './registrar-laptop/registrar-laptop.co
 import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-empleado.component';
 import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles.component';
 import { ListaLaptopComponent } from './lista-laptop/lista-laptop.component';
+import { RegistrarLaptopSinempleadoComponent } from './registrar-laptop-sinempleado/registrar-laptop-sinempleado.component';
+import { ListaSmartphoneComponent } from './lista-smartphone/lista-smartphone.component';
+import { RegistrarSmartphoneComponent } from './registrar-smartphone/registrar-smartphone.component';
+import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-sinempleado/registrar-smartphone-sinempleado.component';
 export const routes: Routes = [
   {path: "empleados",component:ListaEmpleadosComponent},
   {path: "laptops",component:ListaLaptopComponent},
+  {path: "smartphones",component:ListaSmartphoneComponent},
   {path: "", redirectTo: "empleados", pathMatch: "full"},
   {path: "registrar-empleado",component:RegistrarEmpleadoComponent},
-  //{path: "registrar-laptop",component:RegistrarLaptopComponent},
+  {path: "registrar-laptop",component:RegistrarLaptopSinempleadoComponent},
   {path: "registrar-laptop-id/:id",component:RegistrarLaptopComponent},
+  {path: "registrar-smartphone",component:RegistrarSmartphoneSinempleadoComponent},
+  {path: "registrar-smartphone-id/:id",component:RegistrarSmartphoneComponent},
   {path: "actualizar-empleado/:id",component:ActualizarEmpleadoComponent},
   {path: "empleado-detalles/:id",component:EmpleadoDetallesComponent}
 ];

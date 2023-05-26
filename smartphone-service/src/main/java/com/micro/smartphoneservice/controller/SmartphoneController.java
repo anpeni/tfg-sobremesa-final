@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/smartphone")
@@ -53,6 +55,20 @@ public class SmartphoneController {
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(listsmartphone);
 
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String,Boolean>> eliminarSmartphone(@PathVariable("id") int id){
+        Smartphone employeeNew = smartphoneService.GetById(id);
+
+        if (employeeNew == null)
+            return ResponseEntity.notFound().build();
+
+        smartphoneService.borrarSmartphone(id);
+
+        Map<String, Boolean> respuesta = new HashMap<>();
+        respuesta.put("eliminar",Boolean.TRUE);
+        return ResponseEntity.ok(respuesta);
     }
 
 }

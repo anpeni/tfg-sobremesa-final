@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class EmployeeService {
@@ -56,6 +53,20 @@ public class EmployeeService {
         return laptopNew;
     }
 
+    public Laptop saveLaptopAlmacen(int employeeId, Laptop laptop) {
+        laptop.setUserId(0);
+        Laptop laptopNew = laptopFeignClient.save(laptop);
+
+        return laptopNew;
+    }
+
+    public Smartphone saveSmartphoneAlmacen(int employeeId, Smartphone smartphone) {
+        smartphone.setUserId(0);
+        Smartphone smartphoneNew = smartphoneFeignClient.save(smartphone);
+
+        return smartphoneNew;
+    }
+
     public Smartphone saveSmartphone(int employeeId, Smartphone smartphone) {
         smartphone.setUserId(employeeId);
         Smartphone smartphoneNew = smartphoneFeignClient.save(smartphone);
@@ -64,14 +75,24 @@ public class EmployeeService {
     }
 
 
+
+
     public List<Laptop> byUserId(int employeeId) {
 
-        return laptopFeignClient.getLaptop(employeeId);
+        List<Laptop> laptops = laptopFeignClient.getLaptop(employeeId);
+        if(laptops == null) {
+            return new ArrayList<>();
+        }
+        return laptops;
     }
 
     public List<Smartphone> byUserIdSmartphone(int employeeId) {
 
-        return smartphoneFeignClient.getSmartphone(employeeId);
+        List<Smartphone> smartphones = smartphoneFeignClient.getSmartphone(employeeId);
+        if(smartphones == null) {
+            return new ArrayList<>();
+        }
+        return smartphones;
     }
 
     public Map<String, Object> getEmployeeAndDevice(int employeeId) {

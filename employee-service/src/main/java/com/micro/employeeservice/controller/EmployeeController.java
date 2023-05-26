@@ -67,6 +67,18 @@ public class EmployeeController {
         if (employeeNew == null)
             return ResponseEntity.notFound().build();
 
+        for (Laptop laptop : employeeService.byUserId(id)) {
+            laptop.setUserId(0);
+            employeeService.saveLaptopAlmacen(id,laptop);
+        }
+
+
+            for (Smartphone smartphone : employeeService.byUserIdSmartphone(id)) {
+                smartphone.setUserId(0);
+                employeeService.saveSmartphoneAlmacen(id,smartphone);
+            }
+
+
         employeeService.borrarUsuario(id);
 
         Map<String, Boolean> respuesta = new HashMap<>();

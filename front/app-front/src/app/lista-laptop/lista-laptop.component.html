@@ -14,7 +14,7 @@
             <td>{{laptop.id}}</td>
             <td>{{laptop.marca}}</td>
             <td>{{laptop.model}}</td>
-            <td>{{laptop.userId}}</td>
+            <td>{{laptop.userId === 0 ? 'Disponible' : laptop.userId}}</td>
               <td>
                 <!-- <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button>  -->
                 <button (click)="eliminarL(laptop.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
@@ -26,6 +26,6 @@
 
 </table>
 <div>
-      <button (click)="crearLaptopId()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>   
+      <button (click)="crearLaptop()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>   
 </div>
 
