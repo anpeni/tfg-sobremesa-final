@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/laptop")
@@ -52,6 +54,20 @@ public class LaptopController {
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(listLaptop);
 
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String,Boolean>> eliminarLaptop(@PathVariable("id") int id){
+        Laptop employeeNew = laptopService.GetById(id);
+
+        if (employeeNew == null)
+            return ResponseEntity.notFound().build();
+
+        laptopService.borrarLaptop(id);
+
+        Map<String, Boolean> respuesta = new HashMap<>();
+        respuesta.put("eliminar",Boolean.TRUE);
+        return ResponseEntity.ok(respuesta);
     }
 
 }

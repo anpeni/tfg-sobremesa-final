@@ -15,16 +15,17 @@
             <td>{{laptop.marca}}</td>
             <td>{{laptop.model}}</td>
             <td>{{laptop.userId}}</td>
-             <!-- <td>
-                <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button> 
-                <button (click)="eliminarE(employee.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
-                <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
-            </td>  -->
+              <td>
+                <!-- <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button>  -->
+                <button (click)="eliminarL(laptop.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+                <button (click)="verD(laptop.userId)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
+                <!-- <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button> -->
+            </td>  
         </tr>
     </tbody>
 
 </table>
 <div>
-     <button (click)="crearLaptop()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>  
+      <button (click)="crearLaptopId()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>   
 </div>
 

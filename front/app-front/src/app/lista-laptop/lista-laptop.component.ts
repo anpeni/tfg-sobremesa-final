@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Laptop } from '../laptop';
 import { Router } from '@angular/router';
 import { LaptopService } from '../laptop.service';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-lista-laptop',
@@ -9,8 +10,9 @@ import { LaptopService } from '../laptop.service';
   styleUrls: ['./lista-laptop.component.css']
 })
 export class ListaLaptopComponent implements OnInit{
+  
 
-  constructor(private laptopService: LaptopService,  private router: Router) { }
+  constructor(private laptopService: LaptopService, private employeeService: EmployeeService, private router: Router) { }
 
   laptops: Laptop[]
 
@@ -20,16 +22,20 @@ export class ListaLaptopComponent implements OnInit{
     })
   }
 
-  crearLaptop(){
-    this.router.navigate(['registrar-laptop'])
-  }
 
-  crearLaptopId(){
-    this.router.navigate(['registrar-laptop-id'])
-  }
+  eliminarL(id: number) {
+    this.employeeService.eliminarLaptop(id).subscribe(dato => {
+      console.log(dato);
+      this.obtenerLaptop()
+
+    })}
 
   ngOnInit(): void {
     this.obtenerLaptop()
   }
+
+  verD(id: number) {
+    this.router.navigate(['empleado-detalles', id])
+    }
 
 }

@@ -11,6 +11,7 @@ import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-em
 import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles.component';
 import { ListaLaptopComponent } from './lista-laptop/lista-laptop.component';
 import { RegistrarLaptopComponent } from './registrar-laptop/registrar-laptop.component';
+import { RegistrarLaptopSinempleadoComponent } from './registrar-laptop-sinempleado/registrar-laptop-sinempleado.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistrarLaptopComponent } from './registrar-laptop/registrar-laptop.co
     ActualizarEmpleadoComponent,
     EmpleadoDetallesComponent,
     ListaLaptopComponent,
-    RegistrarLaptopComponent
+    RegistrarLaptopComponent,
+    RegistrarLaptopSinempleadoComponent
   ],
   imports: [
     BrowserModule,

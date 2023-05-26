@@ -28,6 +28,11 @@ public class LaptopService {
         return newLaptop;
     }
 
+    public void borrarLaptop(int id) {
+
+        laptopRepository.deleteById(id);
+    }
+
     public List<Laptop> byUserId(int userId) {
 
         return laptopRepository.findByUserId(userId);

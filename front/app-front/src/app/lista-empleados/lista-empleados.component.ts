@@ -14,14 +14,14 @@ export class ListaEmpleadosComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,  private router: Router) { }
 
-  private obtenerEmpleado() {
+  private obtenerEmpleados() {
     this.employeeService.obtenerListaEmpleados().subscribe(dato => {
       this.empleados = dato
     })
   }
 
   ngOnInit(): void {
-    this.obtenerEmpleado()
+    this.obtenerEmpleados()
 
   }
 
@@ -39,13 +39,15 @@ export class ListaEmpleadosComponent implements OnInit {
     }
 
   eliminarE(id: number) {
+    
     this.employeeService.eliminarEmpleado(id).subscribe(dato => {
       console.log(dato);
-      this.obtenerEmpleado()
+      this.obtenerEmpleados()
 
     })}
 
     verD(id: number) {
+      
       this.router.navigate(['empleado-detalles', id])
       }
 

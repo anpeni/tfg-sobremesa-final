@@ -12,7 +12,7 @@ export const routes: Routes = [
   {path: "", redirectTo: "empleados", pathMatch: "full"},
   {path: "registrar-empleado",component:RegistrarEmpleadoComponent},
   //{path: "registrar-laptop",component:RegistrarLaptopComponent},
-  {path: "registrar-laptop/:id",component:RegistrarLaptopComponent},
+  {path: "registrar-laptop-id/:id",component:RegistrarLaptopComponent},
   {path: "actualizar-empleado/:id",component:ActualizarEmpleadoComponent},
   {path: "empleado-detalles/:id",component:EmpleadoDetallesComponent}
 ];

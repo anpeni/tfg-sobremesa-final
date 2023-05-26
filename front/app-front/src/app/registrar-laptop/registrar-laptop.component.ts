@@ -4,6 +4,8 @@ import { LaptopService } from '../laptop.service';
 import { Laptop } from '../laptop';
 import { catchError, tap, throwError } from 'rxjs';
 import { EmployeeService } from '../employee.service';
+import { Employee } from '../employee';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-laptop',
@@ -13,8 +15,9 @@ import { EmployeeService } from '../employee.service';
 export class RegistrarLaptopComponent implements OnInit{
 
   laptop: Laptop = new Laptop()
+  //empleado: Employee = new Employee()
 
-  constructor(private laptopServicio: LaptopService,private empleadoServicio: EmployeeService, private router: Router) {
+  constructor(private laptopServicio: LaptopService,private empleadoServicio: EmployeeService, private router: Router, private route:ActivatedRoute) {
 
   }
 
@@ -22,20 +25,10 @@ export class RegistrarLaptopComponent implements OnInit{
     
   }
 
-  // guardarLaptop() {
-  //   this.laptopServicio.registrarLaptop(this.laptop).pipe(
-  //     tap(dato => {
-  //       console.log(dato);
-  //     }),
-  //     catchError(error => {
-  //       console.log(error);
-  //       return throwError(() => error);
-  //     })
-  //   ).subscribe();
-  // }
 
   guardarLaptopId() {
-    this.laptopServicio.registrarLaptop(this.laptop).pipe(
+    this.laptop.userId = this.route.snapshot.params['id']
+    this.empleadoServicio.registrarLaptopId(this.laptop.userId,this.laptop).pipe(
       tap(dato => {
         console.log(dato);
       }),
@@ -46,14 +39,15 @@ export class RegistrarLaptopComponent implements OnInit{
     ).subscribe();
   }
 
-  irALaListaDeEmpleados() {
+  irALaListaDeLaptops() {
     this.router.navigate(['/laptops'])
   }
 
   onSubmit() {
     
-    this.irALaListaDeEmpleados()
-    this.guardarLaptop();
+    
+    this.guardarLaptopId();
+    this.irALaListaDeLaptops()
   }
 
 }
