@@ -19,7 +19,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-spring:
   application:
     name: employee-service
   sleuth:
