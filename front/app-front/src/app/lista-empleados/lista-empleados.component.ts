@@ -55,6 +55,11 @@ export class ListaEmpleadosComponent implements OnInit {
       this.router.navigate(['empleado-detalles', id])
       }
 
+      verDispositivos(id: number) {
+      
+        this.router.navigate(['lista-laptop-filtrada', id])
+        }
+
   
 
 }

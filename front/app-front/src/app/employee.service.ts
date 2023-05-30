@@ -17,12 +17,23 @@ export class EmployeeService {
   private baseURL4=" http://localhost:8080/laptop";
   private baseURL5="http://localhost:8080/employee/savesmartphone";
   private baseURL6="http://localhost:8080/smartphone";
- 
+  private baseURL7="http://localhost:8080/employee/laptop";
+  private baseURL8="http://localhost:8080/employee/smartphone";
 
   constructor(private httpClient:HttpClient) { }
 
   obtenerListaEmpleados():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+    
+  }
+
+  obtenerListaLaptopEmpleado(id:number):Observable<Laptop[]>{
+    return this.httpClient.get<Laptop[]>(`${this.baseURL7}/${id}`);
+    
+  }
+
+  obtenerListaSmartphoneEmpleado(id:number):Observable<Smartphone[]>{
+    return this.httpClient.get<Smartphone[]>(`${this.baseURL8}/${id}`);
     
   }
 

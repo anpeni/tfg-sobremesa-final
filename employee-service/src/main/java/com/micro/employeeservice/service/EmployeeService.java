@@ -53,6 +53,13 @@ public class EmployeeService {
         return laptopNew;
     }
 
+    public Smartphone saveSmartphone(int employeeId, Smartphone smartphone) {
+        smartphone.setUserId(employeeId);
+        Smartphone smartphoneNew = smartphoneFeignClient.save(smartphone);
+
+        return smartphoneNew;
+    }
+
     public Laptop saveLaptopAlmacen(int employeeId, Laptop laptop) {
         laptop.setUserId(0);
         Laptop laptopNew = laptopFeignClient.save(laptop);
@@ -67,12 +74,7 @@ public class EmployeeService {
         return smartphoneNew;
     }
 
-    public Smartphone saveSmartphone(int employeeId, Smartphone smartphone) {
-        smartphone.setUserId(employeeId);
-        Smartphone smartphoneNew = smartphoneFeignClient.save(smartphone);
 
-        return smartphoneNew;
-    }
 
 
 

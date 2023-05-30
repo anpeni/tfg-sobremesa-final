@@ -10,6 +10,9 @@ import { RegistrarLaptopSinempleadoComponent } from './registrar-laptop-sinemple
 import { ListaSmartphoneComponent } from './lista-smartphone/lista-smartphone.component';
 import { RegistrarSmartphoneComponent } from './registrar-smartphone/registrar-smartphone.component';
 import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-sinempleado/registrar-smartphone-sinempleado.component';
+import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.component';
+import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
+
 export const routes: Routes = [
   {path: "empleados",component:ListaEmpleadosComponent},
   {path: "laptops",component:ListaLaptopComponent},
@@ -21,6 +24,8 @@ export const routes: Routes = [
   {path: "registrar-smartphone",component:RegistrarSmartphoneSinempleadoComponent},
   {path: "registrar-smartphone-id/:id",component:RegistrarSmartphoneComponent},
   {path: "actualizar-empleado/:id",component:ActualizarEmpleadoComponent},
+  {path: "empleado-dispositivos/:id",component:VerDispositivosComponent},
+  {path: "lista-laptop-filtrada/:id",component:ListaLaptopFiltradaComponent},
   {path: "empleado-detalles/:id",component:EmpleadoDetallesComponent}
 ];
 

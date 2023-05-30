@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RegistrarLaptopComponent implements OnInit{
 
   laptop: Laptop = new Laptop()
+  laptops: Laptop[]
   //empleado: Employee = new Employee()
 
   constructor(private laptopServicio: LaptopService,private empleadoServicio: EmployeeService, private router: Router, private route:ActivatedRoute) {
