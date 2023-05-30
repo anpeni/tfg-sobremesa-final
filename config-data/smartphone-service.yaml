@@ -18,7 +18,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-
+  application:
+    name: employee-service
   sleuth:
     otel:
       config:
