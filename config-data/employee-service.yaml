@@ -18,7 +18,12 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+
 management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
   tracing:
     sampling:
       probability: 1.0
