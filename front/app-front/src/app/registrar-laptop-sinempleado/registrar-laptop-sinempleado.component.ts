@@ -17,6 +17,7 @@ export class RegistrarLaptopSinempleadoComponent implements OnInit{
 
   laptop: Laptop = new Laptop()
 empleados: Employee[];
+listaLaptop: Laptop[]
 
   constructor(private laptopServicio: LaptopService, private empleadoServicio: EmployeeService, private router: Router) {
 
@@ -32,6 +33,8 @@ empleados: Employee[];
         return throwError(() => error);
       })
     ).subscribe();
+    this.actualizarListaDeLaptop()
+    this.irALaListaDeLaptops()
   }
 
   obtenerEmpleados() {
@@ -49,6 +52,12 @@ empleados: Employee[];
 
   irALaListaDeLaptops() {
     this.router.navigate(['/laptops'])
+  }
+
+  actualizarListaDeLaptop() {
+    this.laptopServicio.obtenerListaLaptop().subscribe(datos => {
+      this.listaLaptop = datos;
+    })
   }
 
   onSubmit() {

@@ -12,6 +12,8 @@ import { catchError, tap, throwError } from 'rxjs';
 export class RegistrarEmpleadoComponent implements OnInit {
 
   empleado: Employee = new Employee()
+  listaEmpleados: Employee[]
+  
 
   constructor(private empleadoServicio: EmployeeService, private router: Router) {
 
@@ -31,11 +33,19 @@ export class RegistrarEmpleadoComponent implements OnInit {
         return throwError(() => error);
       })
     ).subscribe();
+    this.actualizarListaDeEmpleados()
+    this.irALaListaDeEmpleados()
   }
 
   irALaListaDeEmpleados() {
     this.router.navigate(['/empleados'])
   }
+
+   actualizarListaDeEmpleados() {
+     this.empleadoServicio.obtenerListaEmpleados().subscribe(datos => {
+       this.listaEmpleados = datos;
+     })
+   }
 
   onSubmit() {
     this.guardarEmpleado();

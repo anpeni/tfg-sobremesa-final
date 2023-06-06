@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 export class RegistrarSmartphoneSinempleadoComponent implements OnInit{
 
   smartphone: Smartphone = new Smartphone()
-empleados: Employee[];
+  empleados: Employee[];
+  listaSmartphone: Smartphone[]
 
   constructor(private smartphoneServicio: SmartphoneService, private empleadoServicio: EmployeeService, private router: Router) {
 
@@ -30,6 +31,8 @@ empleados: Employee[];
         return throwError(() => error);
       })
     ).subscribe();
+    this.actualizarListaDeSmartphone()
+    this.irALaListaDeSmartphone()
   }
 
   obtenerEmpleados() {
@@ -47,6 +50,12 @@ empleados: Employee[];
 
   irALaListaDeSmartphone() {
     this.router.navigate(['/smartphones'])
+  }
+
+  actualizarListaDeSmartphone() {
+    this.smartphoneServicio.obtenerListaSmartphone().subscribe(datos => {
+      this.listaSmartphone = datos;
+    })
   }
 
   onSubmit() {
