@@ -25,4 +25,13 @@ export class LaptopService {
      return this.httpClient.post(`${this.baseURL}`,laptop)
 
    }
+  //  almacenLaptop(id:number,laptop: Laptop):Observable<Object>{
+  //   return this.httpClient.put(`${this.baseURL}/${id}`,laptop)
+
+  // }
+
+  almacenLaptop(id:number):Observable<Object>{
+  return this.httpClient.put(`${this.baseURL}/${id}`,null)
+
+   }
 }

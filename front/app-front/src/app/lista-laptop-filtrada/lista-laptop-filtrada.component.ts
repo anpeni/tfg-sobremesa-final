@@ -51,6 +51,13 @@ export class ListaLaptopFiltradaComponent implements OnInit{
 
     })}
 
+    pasarAlmacen(id: number) {
+      this.laptopService.almacenLaptop(id).subscribe(dato => {
+        console.log(dato);
+        this.obtenerLaptop()
+  
+      })}
+
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
         this.id = Number(params.get('id'));

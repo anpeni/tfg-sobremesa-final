@@ -70,5 +70,19 @@ public class LaptopController {
         return ResponseEntity.ok(respuesta);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Laptop> pasarAlmacen(@PathVariable("id") int id){
+        Laptop laptopNew = laptopService.GetById(id);
+
+        if (laptopNew == null) return ResponseEntity.notFound().build();
+
+        laptopNew.setUserId(0);
+
+
+        Laptop laptopActualizado = laptopService.save(laptopNew);
+        return ResponseEntity.ok(laptopActualizado);
+
+    }
+
 }
 
