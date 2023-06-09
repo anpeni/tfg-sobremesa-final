@@ -40,6 +40,12 @@ export class RegistrarLaptopComponent implements OnInit{
     ).subscribe();
   }
 
+  actualizarListaDeLaptops() {
+    this.laptopServicio.obtenerListaLaptop().subscribe(datos => {
+      this.laptops = datos;
+    })
+  }
+
   irALaListaDeLaptops() {
     this.router.navigate(['/laptops'])
   }
@@ -48,6 +54,7 @@ export class RegistrarLaptopComponent implements OnInit{
     
     
     this.guardarLaptopId();
+    this.actualizarListaDeLaptops()
     this.irALaListaDeLaptops()
   }
 

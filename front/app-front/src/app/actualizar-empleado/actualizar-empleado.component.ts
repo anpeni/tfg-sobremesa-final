@@ -68,7 +68,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
   }
 
   onSubmit() {
-    //this.guardarEmpleado();
+    this.guardarEmpleado();
     this.actualizarEmpleadoCom(this.id)
     this.irALaListaDeEmpleados()
     
