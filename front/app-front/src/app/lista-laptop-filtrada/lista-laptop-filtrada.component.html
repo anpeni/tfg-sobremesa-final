@@ -48,13 +48,16 @@
             <td>{{smartphone.model}}</td>
             <td>{{smartphone.userId === 0 ? 'Disponible' : smartphone.userId}}</td>
               <td>
-                <!-- <button (click)="eliminarS(smartphone.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button> -->
+                
+                <button (click)="eliminarS(smartphone.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button> 
                 <!-- <button (click)="verD(smartphone.userId)" class="btn btn-primary" style="margin-left : 10px">Detalles</button> -->
             </td>  
         </tr>
     </tbody>
 </table>
 <div>
+    <button (click)="crearLaptopId(employee.id)" class="btn btn-secondary" style="margin-left : 10px">Añadir Laptop</button>
+                <button (click)="crearSmartphoneId(employee.id)" class="btn btn-success" style="margin-left : 10px">Añadir Smartphone</button>
       <!-- <button (click)="crearSmartphone()" class="btn btn-primary"  style="margin-left : 10px">Nuevo smartphone</button>    -->
 </div>
 

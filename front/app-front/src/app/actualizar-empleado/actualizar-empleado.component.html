@@ -1,6 +1,8 @@
+
+
 <div class="col-md-6 mx-auto">
     <h3 class="text-center">Registro de empleado</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="secuenciaActualizar(empleado.id)">
         <div class="form-group m-3">
             <label class ="mb-2">Nombre :</label>
             <input type="text"
@@ -25,9 +27,15 @@
             [(ngModel)]="empleado.email"
             name = "email">
         </div>
-        <button class="btn btn-success m-3">Guardar</button>
+        <div class="button-container">
+            <button class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+            <button class="btn btn-danger" (click)="eliminarE(empleado.id)">Eliminar</button>
+          </div>
+        
         
 
     </form>
+    <!-- <button (click)="eliminarE(empleado.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button> -->
 </div>
 

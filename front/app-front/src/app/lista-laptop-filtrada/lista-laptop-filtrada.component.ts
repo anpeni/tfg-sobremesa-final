@@ -6,6 +6,7 @@ import { LaptopService } from '../laptop.service';
 import { ActivatedRoute } from '@angular/router';
 import { Smartphone } from '../smartphone';
 import { SmartphoneService } from '../smartphone.service';
+import { Employee } from '../employee';
 
 @Component({
   selector: 'app-lista-laptop-filtrada',
@@ -20,10 +21,24 @@ export class ListaLaptopFiltradaComponent implements OnInit{
   laptops: Laptop[]
   smartphones: Smartphone[]
   id: number;
+  employee: Employee
+  empleados: Employee[]
 
   private obtenerLaptop() {
     this.laptopService.obtenerListaLaptop().subscribe(dato => {
       this.laptops = dato
+    })
+  }
+
+  private obtenerEmpleado(id: number) {
+    this.employeeService.obtenerEmpleado(id).subscribe(dato => {
+      this.employee = dato
+    })
+  }
+
+  private obtenerEmpleados() {
+    this.employeeService.obtenerListaEmpleados().subscribe(dato => {
+      this.empleados = dato
     })
   }
 
@@ -47,9 +62,24 @@ export class ListaLaptopFiltradaComponent implements OnInit{
   eliminarL(id: number) {
     this.employeeService.eliminarLaptop(id).subscribe(dato => {
       console.log(dato);
-      this.obtenerLaptop()
+      //this.obtenerLaptop()
 
     })}
+
+    crearLaptopId(id: number){
+      this.router.navigate(['registrar-laptop-id',this.employee.id])
+    }
+
+    crearSmartphoneId(id: number){
+      this.router.navigate(['registrar-smartphone-id',this.employee.id])
+    }
+
+    eliminarS(id: number) {
+      this.employeeService.eliminarSmartphone(id).subscribe(dato => {
+        console.log(dato);
+        //this.obtenerS()
+  
+      })}
 
     pasarAlmacen(id: number) {
       this.laptopService.almacenLaptop(id).subscribe(dato => {
@@ -59,10 +89,12 @@ export class ListaLaptopFiltradaComponent implements OnInit{
       })}
 
     ngOnInit(): void {
+      
       this.route.paramMap.subscribe(params => {
         this.id = Number(params.get('id'));
         this.obtenerLaptopUserId(this.id);
         this.obtenerSmartphoneUserId(this.id);
+        this.obtenerEmpleado(this.id);
       });
     }
 
