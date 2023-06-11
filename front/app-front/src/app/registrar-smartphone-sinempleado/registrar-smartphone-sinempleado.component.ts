@@ -109,7 +109,7 @@ export class RegistrarSmartphoneSinempleadoComponent implements OnInit {
   obtenerEmpleados() {
     this.empleadoServicio.obtenerListaEmpleados().subscribe(
       (data) => {
-        const almacen = { id: 0, name: 'Almacén', apellidos: '', email: '' };  // Almacén falso
+        const almacen = { id: 0, name: 'Almacén', apellidos: '', email: '', imageUrl: '' , departamento: '', categoria: ''};  // Almacén falso
         this.empleados = [almacen, ...data];
       },
       (error) => {

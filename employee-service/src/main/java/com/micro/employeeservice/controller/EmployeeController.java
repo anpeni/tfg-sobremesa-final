@@ -54,6 +54,10 @@ public class EmployeeController {
         employeeNew.setName(employee.getName());
         employeeNew.setApellidos(employee.getApellidos());
         employeeNew.setEmail(employee.getEmail());
+        employeeNew.setFechaInicio(employee.getFechaInicio());
+        employeeNew.setImageUrl(employee.getImageUrl());
+        employeeNew.setDepartamento(employee.getDepartamento());
+        employeeNew.setCategoria(employee.getCategoria());
 
         Employee employeeActualizado = employeeService.save(employeeNew);
         return ResponseEntity.ok(employeeActualizado);

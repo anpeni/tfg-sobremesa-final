@@ -14,11 +14,15 @@ export class ListaLaptopComponent implements OnInit{
 
   constructor(private laptopService: LaptopService, private employeeService: EmployeeService, private router: Router) { }
 
-  laptops: Laptop[]
+  originalLaptops: Laptop[] = [];
+  laptops: Laptop[] = [];
+  _filtro = '';
 
   private obtenerLaptop() {
     this.laptopService.obtenerListaLaptop().subscribe(dato => {
-      this.laptops = dato
+      this.originalLaptops = dato;
+      this.laptops = dato;
+      this.aplicarFiltro();
     })
   }
 
@@ -40,6 +44,22 @@ export class ListaLaptopComponent implements OnInit{
 
   verD(id: number) {
     this.router.navigate(['empleado-detalles', id])
+    }
+
+    get filtro() {
+      return this._filtro;
+    }
+  
+    set filtro(valor: string) {
+      this._filtro = valor;
+      this.aplicarFiltro();
+    }
+  
+    aplicarFiltro() {
+      const filtroEnMinusculas = this.filtro.toLowerCase();
+      this.laptops = this.originalLaptops.filter(
+        laptop => laptop.marca.toLowerCase().includes(filtroEnMinusculas) || 
+                   laptop.model.toLowerCase().includes(filtroEnMinusculas));
     }
 
 }

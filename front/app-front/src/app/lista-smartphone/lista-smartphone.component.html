@@ -1,4 +1,10 @@
+
+  <div style="margin-bottom: 20px" >
 <h2>Lista de smartphone</h2>
+</div>
+<div style="margin-bottom: 20px; margin-top: 20px" >
+    <input [(ngModel)]="filtro" placeholder="Buscar smartphones" class="form-control" style="width: 33.33%;">
+  </div>
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
@@ -25,7 +31,8 @@
     </tbody>
 
 </table>
-<div>
-      <button (click)="crearSmartphone()" class="btn btn-primary"  style="margin-left : 10px">Nuevo smartphone</button>   
-</div>
+<div class="d-flex justify-content-between">
+    <button (click)="crearSmartphone()" class="btn btn-primary">Nuevo smartphone</button>
+    <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+  </div>
 

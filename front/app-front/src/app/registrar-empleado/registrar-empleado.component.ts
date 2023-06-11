@@ -13,6 +13,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   empleado: Employee = new Employee()
   listaEmpleados: Employee[]
+  fechaInicio: Date;
   
 
   constructor(private empleadoServicio: EmployeeService, private router: Router) {

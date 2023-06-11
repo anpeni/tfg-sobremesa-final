@@ -1,4 +1,10 @@
+
+<div style="margin-bottom: 20px" >
 <h2>Lista de empleados</h2>
+</div>
+<div style="margin-bottom: 20px; margin-top: 20px" >
+    <input [(ngModel)]="filtro" placeholder="Buscar empleados" class="form-control" style="width: 33.33%;">
+  </div>
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
@@ -6,6 +12,10 @@
             <th>nombre</th>
             <th>apellidos</th>
             <th>email</th>
+            <th>fecha Inicio</th>
+            <th>departamento</th>
+            <th>categoría</th>
+            <th>imagen</th>
             <th>acciones</th>
         </tr>
     </thead>
@@ -15,6 +25,12 @@
             <td>{{employee.name}}</td>
             <td>{{employee.apellidos}}</td>
             <td>{{employee.email}}</td>
+            <td>{{employee.fechaInicio}}</td>
+            <td>{{employee.departamento}}</td>
+            <td>{{employee.categoria}}</td>
+            <td>
+                <img [src]="employee.imageUrl" alt="Imagen del empleado" height="100">
+            </td>
              <td>
                 <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button> 
                 <!-- <button (click)="eliminarE(employee.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button> -->
@@ -27,6 +43,10 @@
     </tbody>
 
 </table>
-<div>
+<div class="d-flex justify-content-between">
      <button (click)="crearEmpleado()" class="btn btn-primary"  style="margin-left : 10px">Nuevo empleado</button> 
-</div>
+     <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+    </div>
+
+    <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)">
+    </mat-paginator>

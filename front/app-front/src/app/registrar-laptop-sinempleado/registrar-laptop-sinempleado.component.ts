@@ -40,7 +40,7 @@ listaLaptop: Laptop[]
   obtenerEmpleados() {
     this.empleadoServicio.obtenerListaEmpleados().subscribe(
       (data) => {
-        const almacen = {id: 0, name: 'Almacén', apellidos: '', email: ''};  // Almacén falso
+        const almacen = {id: 0, name: 'Almacén', apellidos: '', email: '', fechaInicio: new Date(), imageUrl: '', departamento: '', categoria: ''};  // Almacén falso
       this.empleados = [almacen, ...data]; 
         
       },

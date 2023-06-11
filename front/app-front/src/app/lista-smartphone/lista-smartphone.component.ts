@@ -15,11 +15,15 @@ export class ListaSmartphoneComponent implements OnInit{
 
   constructor(private smartphoneService: SmartphoneService, private employeeService: EmployeeService, private router: Router) { }
 
-  smartphones: Smartphone[]
+  originalSmartphones: Smartphone[] = [];
+  smartphones: Smartphone[] = [];
+  _filtro = '';
 
   private obtenerSmartphone() {
     this.smartphoneService.obtenerListaSmartphone().subscribe(dato => {
-      this.smartphones = dato
+      this.originalSmartphones = dato;
+      this.smartphones = dato;
+      this.aplicarFiltro();
     })
   }
 
@@ -41,6 +45,22 @@ export class ListaSmartphoneComponent implements OnInit{
 
   verD(id: number) {
     this.router.navigate(['empleado-detalles', id])
+    }
+
+    get filtro() {
+      return this._filtro;
+    }
+  
+    set filtro(valor: string) {
+      this._filtro = valor;
+      this.aplicarFiltro();
+    }
+  
+    aplicarFiltro() {
+      const filtroEnMinusculas = this.filtro.toLowerCase();
+      this.smartphones = this.originalSmartphones.filter(
+        smartphone => smartphone.marca.toLowerCase().includes(filtroEnMinusculas) || 
+                       smartphone.model.toLowerCase().includes(filtroEnMinusculas));
     }
 
 }

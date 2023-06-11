@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
@@ -18,6 +18,7 @@ import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-
 import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.component';
 import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
 import { PortadaComponent } from './portada/portada.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { PortadaComponent } from './portada/portada.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    MatPaginatorModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

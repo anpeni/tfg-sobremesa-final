@@ -1,18 +1,26 @@
 <h3>Detalles del empleado</h3>
-<div>
-<div>
-    <label><b>Id :</b> {{empleado.id}}</label>
+<div *ngIf="empleado && !message">
+    <div>
+        <label><b>Id :</b> {{empleado.id}}</label>
+    </div>
+    <div>
+        <label><b>Nombre :</b> {{empleado.name}}</label>
+    </div>
+    <div>
+        <label><b>Apellidos :</b> {{empleado.apellidos}}</label>
+    </div>
+    <div>
+        <label><b>Email :</b> {{empleado.email}}</label>
+    </div>
+    <div>
+        <label><b>Fecha Inicio :</b> {{empleado.fechaInicio}}</label>
+    </div>
+    <div>
+        <label><b>Imagen :</b></label>
+        <img [src]="empleado.imageUrl" alt="Imagen del empleado" style="width: 100px; height: 100px;">
+    </div>
 </div>
 
-<div>
-    <label><b>Nombre :</b> {{empleado.name}}</label>
-</div>
-<div>
-    <label><b>Apellidos :</b> {{empleado.apellidos}}</label>
-</div>
-
-<div>
-    <label><b>Email :</b> {{empleado.email}}</label>
-</div>
-    
+<div *ngIf="message">
+    {{message}}
 </div>
