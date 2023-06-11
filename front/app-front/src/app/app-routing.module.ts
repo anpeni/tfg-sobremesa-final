@@ -12,9 +12,11 @@ import { RegistrarSmartphoneComponent } from './registrar-smartphone/registrar-s
 import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-sinempleado/registrar-smartphone-sinempleado.component';
 import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.component';
 import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
+import { PortadaComponent } from './portada/portada.component';
 
 export const routes: Routes = [
   {path: "empleados",component:ListaEmpleadosComponent},
+  {path: "portada",component:PortadaComponent},
   {path: "laptops",component:ListaLaptopComponent},
   {path: "smartphones",component:ListaSmartphoneComponent},
   {path: "", redirectTo: "empleados", pathMatch: "full"},

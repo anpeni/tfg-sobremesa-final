@@ -1,0 +1,12 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta según tus necesidades */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  

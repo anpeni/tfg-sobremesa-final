@@ -17,6 +17,7 @@ import { RegistrarSmartphoneComponent } from './registrar-smartphone/registrar-s
 import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-sinempleado/registrar-smartphone-sinempleado.component';
 import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.component';
 import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
+import { PortadaComponent } from './portada/portada.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-lapt
     RegistrarSmartphoneComponent,
     RegistrarSmartphoneSinempleadoComponent,
     VerDispositivosComponent,
-    ListaLaptopFiltradaComponent
+    ListaLaptopFiltradaComponent,
+    PortadaComponent
   ],
   imports: [
     BrowserModule,
