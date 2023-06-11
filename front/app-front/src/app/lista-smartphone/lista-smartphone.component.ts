@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { EmployeeService } from '../employee.service';
 import { Smartphone } from '../smartphone';
 import { SmartphoneService } from '../smartphone.service';

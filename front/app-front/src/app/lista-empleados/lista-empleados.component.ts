@@ -11,22 +11,23 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ListaEmpleadosComponent implements OnInit {
 
-  originalEmpleados: Employee[] = [];
-  empleados: Employee[] = [];
-  _filtro = '';
-  totalLength = 0; 
-  pageSize = 10; 
-  pageSizeOptions: number[] = [5, 10, 20]; 
-  pageIndex = 0;
+   originalEmpleados: Employee[] = [];
+   empleados: Employee[] = [];
+   _filtro = '';
+   totalLength = 0; 
+   pageSize = 10; 
+   pageSizeOptions: number[] = [5, 10, 20]; 
+   pageIndex = 0;
 
   constructor(private employeeService: EmployeeService,  private router: Router) { }
 
   private obtenerEmpleados() {
     this.employeeService.obtenerListaEmpleados().subscribe(dato => {
       this.originalEmpleados = dato;
+      //this.empleados = dato;
       this.totalLength = dato.length;
       this.aplicarFiltro();
-      this.updatePage();
+      //this.updatePage();
     })
   }
 
@@ -80,7 +81,7 @@ export class ListaEmpleadosComponent implements OnInit {
       empleado => empleado.name.toLowerCase().includes(filtroEnMinusculas) || 
                   empleado.apellidos.toLowerCase().includes(filtroEnMinusculas) ||
                   empleado.email.toLowerCase().includes(filtroEnMinusculas));
-    this.totalLength = this.empleados.length;
+   // this.totalLength = this.empleados.length;
   }
 
   updatePage() {
