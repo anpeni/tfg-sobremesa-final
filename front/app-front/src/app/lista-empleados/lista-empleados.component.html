@@ -43,9 +43,9 @@
     </tbody>
 
 </table>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between" style="margin-bottom: 20px;">
      <button (click)="crearEmpleado()" class="btn btn-primary"  style="margin-left : 10px">Nuevo empleado</button> 
-     <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+     <button routerLink="/portada" class="btn btn-secondary" style="margin-right : 10px">Volver</button>
     </div>
 
     <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)">
