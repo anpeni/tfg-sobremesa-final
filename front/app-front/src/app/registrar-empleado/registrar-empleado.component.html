@@ -1,13 +1,23 @@
 <div class="col-md-6 mx-auto">
     <h3 class="text-center">Registro de empleado</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #empleadoForm ="ngForm">
         <div class="form-group m-3">
             <label class ="mb-2">Nombre :</label>
             <input type="text"
             class="form-control"
             id = "nombre"
             [(ngModel)]="empleado.name"
-            name = "nombre">
+            name = "nombre"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su nombre"
+            #nombre ="ngModel">
+            <div class="alert alert-danger" *ngIf ="nombre.invalid && (nombre.dirty||nombre.touched)">
+                <div *ngIf="nombre.errors && nombre.errors['required']"> El nombre es requerido.</div>
+                <div *ngIf="nombre.errors && nombre.errors['minlength']"> El nombre debe tener al menos 4 caracteres.</div>
+                <div *ngIf="nombre.errors && nombre.errors['maxlength']"> El nombre no debe superar los 10 caracteres.</div>
+            </div>       
         </div>
         <div class="form-group m-3">
             <label class ="mb-2">Apellidos :</label>
@@ -15,7 +25,17 @@
             class="form-control"
             id = "apellidos"
             [(ngModel)]="empleado.apellidos"
-            name = "apellidos">
+            name = "apellidos"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su apellido"
+            #apellidos ="ngModel">
+            <div class="alert alert-danger" *ngIf ="apellidos.invalid && (apellidos.dirty||apellidos.touched)">
+                <div *ngIf="apellidos.errors && apellidos.errors['required']"> El apellido es requerido.</div>
+                <div *ngIf="apellidos.errors && apellidos.errors['minlength']"> El apellido debe tener al menos 4 caracteres.</div>
+                <div *ngIf="apellidos.errors && apellidos.errors['maxlength']"> El apellido no debe superar los 10 caracteres.</div>
+            </div>
         </div>
         <div class="form-group m-3">
             <label class ="mb-2">Email :</label>
@@ -23,7 +43,17 @@
             class="form-control"
             id = "email"
             [(ngModel)]="empleado.email"
-            name = "email">
+            name = "email"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su email"
+            #email ="ngModel">
+            <div class="alert alert-danger" *ngIf ="email.invalid && (email.dirty||email.touched)">
+                <div *ngIf="email.errors && email.errors['required']"> El email es requerido.</div>
+                <div *ngIf="email.errors && email.errors['minlength']"> El email debe tener al menos 4 caracteres.</div>
+                <div *ngIf="email.errors && email.errors['maxlength']"> El email no debe superar los 10 caracteres.</div>
+            </div>       
         </div>
         <div class="form-group m-3">
             <label class="mb-2">Fecha de inicio :</label>
@@ -31,7 +61,16 @@
                    class="form-control" 
                    id="fechaInicio" 
                    [(ngModel)]="empleado.fechaInicio" 
-                   name="fechaInicio">
+                   name="fechaInicio"
+                   required
+                   placeholder="Introduzca fecha"
+                   #fechaInicio ="ngModel">
+                   <div>
+                   <div class="alert alert-danger" *ngIf ="fechaInicio.invalid && (fechaInicio.dirty||fechaInicio.touched)">
+                       <div *ngIf="fechaInicio.errors && fechaInicio.errors['required']"> La fecha es requerido.</div>
+                   </div>       
+               </div>
+                   
         </div>
         <div class="form-group m-3">
             <label class ="mb-2">Departamento :</label>
@@ -39,15 +78,37 @@
             class="form-control"
             id = "departamento"
             [(ngModel)]="empleado.departamento"
-            name = "departamento">
+            name = "departamento"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su departamento"
+            #departamento ="ngModel">
+            <div class="alert alert-danger" *ngIf ="departamento.invalid && (departamento.dirty||departamento.touched)">
+                <div *ngIf="departamento.errors && departamento.errors['required']"> El departamento es requerido.</div>
+                <div *ngIf="departamento.errors && departamento.errors['minlength']"> El departamento debe tener al menos 4 caracteres.</div>
+                <div *ngIf="departamento.errors && departamento.errors['maxlength']"> El departamento no debe superar los 10 caracteres.</div>
+            </div>       
         </div>
+     
         <div class="form-group m-3">
             <label class ="mb-2">Categoría :</label>
             <input type="categoria"
             class="form-control"
             id = "categoria"
             [(ngModel)]="empleado.categoria"
-            name = "categoria">
+            name = "categoria"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su categoria"
+            #categoria ="ngModel">
+            <div class="alert alert-danger" *ngIf ="categoria.invalid && (categoria.dirty||categoria.touched)">
+                <div *ngIf="categoria.errors && categoria.errors['required']"> El categoria es requerido.</div>
+                <div *ngIf="categoria.errors && categoria.errors['minlength']"> El categoria debe tener al menos 4 caracteres.</div>
+                <div *ngIf="categoria.errors && categoria.errors['maxlength']"> El categoria no debe superar los 10 caracteres.</div>
+            </div>       
+      
         </div>
         <div class="form-group m-3">
             <label class="mb-2">URL de la imagen :</label>
@@ -55,10 +116,18 @@
                    class="form-control" 
                    id="imageUrl" 
                    [(ngModel)]="empleado.imageUrl" 
-                   name="imageUrl">
-        </div>
-        
-        <button class="btn btn-success m-3">Guardar</button>
+                   name="imageUrl"
+                   required
+                   minlength="4"
+                   maxlength="10"
+                   placeholder="Introduzca su imageUrl"
+                   #imageUrl ="ngModel">
+                   <div class="alert alert-danger" *ngIf ="imageUrl.invalid && (imageUrl.dirty||imageUrl.touched)">
+                       <div *ngIf="imageUrl.errors && imageUrl.errors['required']"> La imagen es requerido.</div>
+                       
+                   </div> 
+                </div> 
+        <button class="btn btn-success m-3" [disabled]="!empleadoForm.form.valid">Guardar</button>
         <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeEmpleados()">Cancelar</button>
         
         

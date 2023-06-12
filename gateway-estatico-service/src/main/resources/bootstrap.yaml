@@ -1,50 +1,10 @@
-#spring:
-#  application:
-#    name: gateway-estatico-service
-#  cloud:
-#    config:
-#      enabled: true
-#      uri: ${CONFIG_SERVICE_URI:http://config-service:8081}
-
-server:
-  port: 8080
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      default-zone: ${EUREKA_SERVICE_URI:http://eureka-service:8761/eureka}
-  instance:
-    hostname: localhost
-
 spring:
+  application:
+    name: gateway-estatico-service
   cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: employee-service
-          uri: lb://employee-service
-          predicates:
-            - Path=/employee/**
-        - id: laptop-service
-          uri: lb://laptop-service
-          predicates:
-            - Path=/laptop/**
-        - id: smartphone-service
-          uri: lb://smartphone-service
-          predicates:
-            - Path=/smartphone/**
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
+    config:
+      enabled: true
+      uri: ${CONFIG_SERVICE_URI:http://config-service:8081}
 
 
 
