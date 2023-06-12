@@ -1,13 +1,24 @@
 <div class="col-md-6 mx-auto">
     <h3 class="text-center">Registro de empleado</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #empleadoForm ="ngForm">
         <div class="form-group m-3">
             <label class ="mb-2">Nombre :</label>
             <input type="text"
             class="form-control"
             id = "nombre"
             [(ngModel)]="empleado.name"
-            name = "nombre">
+            name = "nombre"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Introduzca su nombre"
+            #nombre ="ngModel">
+            <div class="alert alert-danger" *ngIf ="nombre.invalid && (nombre.dirty||nombre.touched)">
+                <div *ngIf="nombre.errors && nombre.errors['required']"> El nombre es requerido.</div>
+                <div *ngIf="nombre.errors && nombre.errors['minlength']"> El nombre debe tener al menos 4 caracteres.</div>
+                <div *ngIf="nombre.errors && nombre.errors['maxlength']"> El nombre no debe superar los 10 caracteres.</div>
+            </div>
+            
         </div>
         <div class="form-group m-3">
             <label class ="mb-2">Apellidos :</label>
@@ -58,7 +69,7 @@
                    name="imageUrl">
         </div>
         
-        <button class="btn btn-success m-3">Guardar</button>
+        <button class="btn btn-success m-3" [disabled]="!empleadoForm.form.valid">Guardar</button>
         <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeEmpleados()">Cancelar</button>
         
         
