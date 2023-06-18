@@ -56,9 +56,10 @@
     </tbody>
 </table>
 <div class="d-flex justify-content-between">
-    <button (click)="crearLaptopId(employee.id)" class="btn btn-secondary" style="margin-left : 10px">Añadir Laptop</button>
-                <button (click)="crearSmartphoneId(employee.id)" class="btn btn-success" style="margin-left : 10px">Añadir Smartphone</button>
-                <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+    <button (click)="crearLaptopId(employee.id)" class="btn btn-secondary" style="margin-left : 10px">Añadir nuevo Laptop</button>
+    <button (click)="asignarLaptop(employee.id)" class="btn btn-secondary" style="margin-left : 10px">Añadir Laptop</button>    
+    <button (click)="crearSmartphoneId(employee.id)" class="btn btn-success" style="margin-left : 10px">Añadir Smartphone</button>
+                <button routerLink="/empleados" class="btn btn-secondary">Volver</button>
       <!-- <button (click)="crearSmartphone()" class="btn btn-primary"  style="margin-left : 10px">Nuevo smartphone</button>    -->
 </div>
 

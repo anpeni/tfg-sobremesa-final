@@ -62,9 +62,14 @@ export class ListaLaptopFiltradaComponent implements OnInit{
   eliminarL(id: number) {
     this.employeeService.eliminarLaptop(id).subscribe(dato => {
       console.log(dato);
+      this.obtenerLaptopUserId(this.id);
       //this.obtenerLaptop()
 
     })}
+
+    asignarLaptop(id: number){
+      this.router.navigate(['asignar-laptop-existente',this.employee.id])
+    }
 
     crearLaptopId(id: number){
       this.router.navigate(['registrar-laptop-id',this.employee.id])
@@ -77,6 +82,7 @@ export class ListaLaptopFiltradaComponent implements OnInit{
     eliminarS(id: number) {
       this.employeeService.eliminarSmartphone(id).subscribe(dato => {
         console.log(dato);
+        this.obtenerSmartphoneUserId(this.id);
         //this.obtenerS()
   
       })}

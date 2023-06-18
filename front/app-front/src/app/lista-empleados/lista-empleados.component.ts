@@ -16,7 +16,7 @@ export class ListaEmpleadosComponent implements OnInit {
    empleados: Employee[] = [];
    _filtro = '';
    totalLength = 0; 
-   pageSize = 5; 
+   pageSize = 10; 
    pageSizeOptions: number[] = [5, 10, 20]; 
    pageIndex = 0;
 

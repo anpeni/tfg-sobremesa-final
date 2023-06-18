@@ -10,6 +10,7 @@ import { Laptop } from './laptop';
 export class LaptopService {
 
   private baseURL="http://localhost:8080/laptop";
+ 
 
   constructor(private httpClient:HttpClient) { }
 
@@ -34,4 +35,9 @@ export class LaptopService {
   return this.httpClient.put(`${this.baseURL}/${id}`,null)
 
    }
+
+   actualizarLaptop(id:number,laptop:Laptop):Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,laptop)
+
+  }
 }

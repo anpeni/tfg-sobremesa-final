@@ -19,6 +19,7 @@ import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.co
 import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
 import { PortadaComponent } from './portada/portada.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AsignarLaptopExistenteComponent } from './asignar-laptop-existente/asignar-laptop-existente.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegistrarSmartphoneSinempleadoComponent,
     VerDispositivosComponent,
     ListaLaptopFiltradaComponent,
-    PortadaComponent
+    PortadaComponent,
+    AsignarLaptopExistenteComponent
   ],
   imports: [
     BrowserModule,

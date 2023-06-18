@@ -76,13 +76,15 @@ public class LaptopController {
 
         if (laptopNew == null) return ResponseEntity.notFound().build();
 
-        laptopNew.setUserId(0);
+        laptopNew.setUserId(99);
 
 
         Laptop laptopActualizado = laptopService.save(laptopNew);
         return ResponseEntity.ok(laptopActualizado);
 
     }
+
+
 
 }
 

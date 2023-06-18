@@ -13,6 +13,7 @@ import { RegistrarSmartphoneSinempleadoComponent } from './registrar-smartphone-
 import { VerDispositivosComponent } from './ver-dispositivos/ver-dispositivos.component';
 import { ListaLaptopFiltradaComponent } from './lista-laptop-filtrada/lista-laptop-filtrada.component';
 import { PortadaComponent } from './portada/portada.component';
+import { AsignarLaptopExistenteComponent } from './asignar-laptop-existente/asignar-laptop-existente.component';
 
 export const routes: Routes = [
   {path: "empleados",component:ListaEmpleadosComponent},
@@ -21,6 +22,7 @@ export const routes: Routes = [
   {path: "smartphones",component:ListaSmartphoneComponent},
   {path: "", redirectTo: "empleados", pathMatch: "full"},
   {path: "registrar-empleado",component:RegistrarEmpleadoComponent},
+  {path: "asignar-laptop-existente/:id",component:AsignarLaptopExistenteComponent},
   {path: "registrar-laptop",component:RegistrarLaptopSinempleadoComponent},
   {path: "registrar-laptop-id/:id",component:RegistrarLaptopComponent},
   {path: "registrar-smartphone",component:RegistrarSmartphoneSinempleadoComponent},

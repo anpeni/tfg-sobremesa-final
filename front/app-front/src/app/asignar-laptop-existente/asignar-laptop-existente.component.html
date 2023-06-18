@@ -1,0 +1,21 @@
+<div class="col-md-6 mx-auto">
+    <h3 class="text-center">Registro de laptop</h3>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group m-3">
+            <label class="mb-2">Laptop :</label>
+            <select class="form-select" aria-label="Default select example" id="empleado" [(ngModel)]="selectedLaptopId" name="empleado">
+
+                <option selected disabled>Seleccione laptop</option>
+                <ng-container *ngFor="let laptop of listaLaptop">
+                    <option [value]="laptop.id" *ngIf="laptop.userId === 0">
+                        {{laptop.id}} - {{laptop.marca}} {{laptop.model}}
+                    </option>
+                </ng-container>
+            </select>
+          </div>
+        <button class="btn btn-success m-3">Guardar</button>
+        <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeLaptops()">Cancelar</button>
+
+    </form>
+</div>
