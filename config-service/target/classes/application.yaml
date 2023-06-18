@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: imagen-usuarios-ampliacion
+          default-label: imagen-usuarios-ampliacion-01
           uri: https://github.com/anpeni/tfg-sobremesa-final
           search-paths: config-data
   application:
