@@ -28,7 +28,7 @@
             name = "apellidos"
             required
             minlength="4"
-            maxlength="10"
+            maxlength="30"
             placeholder="Introduzca su apellido"
             #apellidos ="ngModel">
             <div class="alert alert-danger" *ngIf ="apellidos.invalid && (apellidos.dirty||apellidos.touched)">
@@ -46,7 +46,7 @@
             name = "email"
             required
             minlength="4"
-            maxlength="10"
+            maxlength="25"
             placeholder="Introduzca su email"
             #email ="ngModel">
             <div class="alert alert-danger" *ngIf ="email.invalid && (email.dirty||email.touched)">
@@ -80,8 +80,8 @@
             [(ngModel)]="empleado.departamento"
             name = "departamento"
             required
-            minlength="4"
-            maxlength="10"
+            minlength="2"
+            maxlength="30"
             placeholder="Introduzca su departamento"
             #departamento ="ngModel">
             <div class="alert alert-danger" *ngIf ="departamento.invalid && (departamento.dirty||departamento.touched)">
@@ -99,8 +99,8 @@
             [(ngModel)]="empleado.categoria"
             name = "categoria"
             required
-            minlength="4"
-            maxlength="10"
+            minlength="2"
+            maxlength="30"
             placeholder="Introduzca su categoria"
             #categoria ="ngModel">
             <div class="alert alert-danger" *ngIf ="categoria.invalid && (categoria.dirty||categoria.touched)">
@@ -119,7 +119,7 @@
                    name="imageUrl"
                    required
                    minlength="4"
-                   maxlength="10"
+                   maxlength="100"
                    placeholder="Introduzca su imageUrl"
                    #imageUrl ="ngModel">
                    <div class="alert alert-danger" *ngIf ="imageUrl.invalid && (imageUrl.dirty||imageUrl.touched)">

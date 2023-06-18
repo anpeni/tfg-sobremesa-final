@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-empleados',
@@ -15,7 +16,7 @@ export class ListaEmpleadosComponent implements OnInit {
    empleados: Employee[] = [];
    _filtro = '';
    totalLength = 0; 
-   pageSize = 10; 
+   pageSize = 5; 
    pageSizeOptions: number[] = [5, 10, 20]; 
    pageIndex = 0;
 
@@ -58,6 +59,33 @@ export class ListaEmpleadosComponent implements OnInit {
     })
   }
 
+
+  // eliminarE(id: number) {
+  //   Swal.fire({
+  //     title: '¿Estás seguro?',
+  //     text: "Se eliminará al empleado",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Sí, eliminar!',
+  //     cancelButtonText: 'No, cancelar!'
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       this.employeeService.eliminarEmpleado(id).subscribe(dato => {
+  //         console.log(dato);
+  //         this.obtenerEmpleados();
+  //         Swal.fire(
+  //           'Eliminado!',
+  //           'El empleado ha sido eliminado.',
+  //           'success'
+  //         )
+  //       })
+  //     }
+  //   })
+  // }
+  
+  
   verD(id: number) {
     this.router.navigate(['empleado-detalles', id])
   }

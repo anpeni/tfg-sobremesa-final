@@ -105,6 +105,8 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, tap, throwError, concatMap } from 'rxjs';
+import Swal from 'sweetalert2';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-actualizar-empleado',
@@ -117,7 +119,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
   listaEmpleados: Employee[]
   id: number
 
-  constructor(private empleadoServicio: EmployeeService, private router: Router, private route: ActivatedRoute) {
+  constructor(private changeDetector: ChangeDetectorRef,private empleadoServicio: EmployeeService, private router: Router, private route: ActivatedRoute) {
 
   }
 
@@ -165,7 +167,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
     this.router.navigate(['/empleados'])
   }
 
-  eliminarE(id: number) {
+  eliminarEE(id: number) {
     this.empleadoServicio.eliminarEmpleado(id).pipe(
       concatMap(dato => {
         console.log(dato);
@@ -181,6 +183,60 @@ export class ActualizarEmpleadoComponent implements OnInit {
     });
     
   }
+
+  eliminarE(id: number) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Se eliminará al empleado",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'No, cancelar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.empleadoServicio.eliminarEmpleado(id).subscribe(
+          dato => {
+            console.log(dato);
+            Swal.fire(
+              'Eliminado!',
+              'El empleado ha sido eliminado.',
+              'success'
+            );
+            this.actualizarListaEmpleados();
+            this.irALaListaDeEmpleados()
+          },
+          error => {
+            console.log(error);
+          });
+
+
+      }
+    });
+
+  }
+  
+  actualizarListaEmpleados() {
+    this.empleadoServicio.obtenerListaEmpleados().subscribe(
+      listaActualizada => {
+        this.listaEmpleados = listaActualizada;
+        this.irALaListaDeEmpleados();
+        this.changeDetector.detectChanges();
+      },
+      error => {
+        console.log(error);
+      });
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   secuenciaEliminar(id: number){
     this.eliminarE(this.id)

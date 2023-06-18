@@ -31,8 +31,11 @@
     </tbody>
 
 </table>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between" style="margin-bottom: 20px;">
     <button (click)="crearSmartphone()" class="btn btn-primary">Nuevo smartphone</button>
     <button routerLink="/portada" class="btn btn-secondary">Volver</button>
   </div>
+
+  <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)">
+  </mat-paginator>
 
