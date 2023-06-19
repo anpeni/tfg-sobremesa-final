@@ -1,40 +1,42 @@
-<div style="margin-bottom: 20px" >
-    <h2>Lista de laptop</h2>
-    </div>
-    <div style="margin-bottom: 20px; margin-top: 20px" >
-        <input [(ngModel)]="filtro" placeholder="Buscar laptops" class="form-control" style="width: 33.33%;">
-      </div>
-<table class="table table-striped">
+<div style="margin-bottom: 20px">
+    <h2>Lista de laptops</h2>
+  </div>
+  <div style="margin-bottom: 20px; margin-top: 20px">
+    <input [(ngModel)]="filtro" placeholder="Buscar laptops" class="form-control" style="width: 33.33%;">
+  </div>
+  <table class="table table-striped">
     <thead class="table-dark">
-        <tr>
-            <th>id</th>
-            <th>marca</th>
-            <th>modelo</th>
-            <th>userId</th>
-            <th>acciones</th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>CPU</th>
+        <th>RAM</th>
+        <th>Disco Duro</th>
+        <th>UserId</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let laptop of laptops ">
-            <td>{{laptop.id}}</td>
-            <td>{{laptop.marca}}</td>
-            <td>{{laptop.model}}</td>
-            <td>{{laptop.userId === 0 ? 'Disponible' : laptop.userId}}</td>
-              <td>
-                <!-- <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button>  -->
-                <button (click)="eliminarL(laptop.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
-                <button (click)="verD(laptop.userId)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
-                <!-- <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button> -->
-            </td>  
-        </tr>
+      <tr *ngFor="let laptop of laptops">
+        <td>{{ laptop.id }}</td>
+        <td>{{ laptop.marca }}</td>
+        <td>{{ laptop.model }}</td>
+        <td>{{ laptop.cpu }}</td>
+        <td>{{ laptop.ram }}</td>
+        <td>{{ laptop.discoDuro }}</td>
+        <td>{{ laptop.userId === 0 ? 'Disponible' : laptop.userId }}</td>
+        <td>
+          <button (click)="eliminarL(laptop.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+          <button (click)="verD(laptop.userId)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+        </td>
+      </tr>
     </tbody>
-
-</table>
-<div class="d-flex justify-content-between" style="margin-bottom: 20px;">
-      <button (click)="crearLaptop()" class="btn btn-primary"  style="margin-left : 10px">Nuevo laptop</button>   
-      <button routerLink="/portada" class="btn btn-secondary">Volver</button>
-    </div>
-
-    <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)">
-    </mat-paginator>
-
+  </table>
+  <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+    <button (click)="crearLaptop()" class="btn btn-primary" style="margin-left: 10px">Nuevo laptop</button>
+    <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+  </div>
+  
+  <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)"></mat-paginator>
+  

@@ -1,8 +1,83 @@
+// import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
+// import { LaptopService } from '../laptop.service';
+// import { Laptop } from '../laptop';
+// import { catchError, tap, throwError } from 'rxjs';
+// import { EmployeeService } from '../employee.service';
+// import { Employee } from '../employee';
+// import { ActivatedRoute } from '@angular/router';
+
+// @Component({
+//   selector: 'app-registrar-laptop',
+//   templateUrl: './registrar-laptop.component.html',
+//   styleUrls: ['./registrar-laptop.component.css']
+// })
+// export class RegistrarLaptopComponent implements OnInit{
+
+//   laptop: Laptop = new Laptop()
+//   laptops: Laptop[]
+//   empleado: Employee = new Employee()
+  
+//   //empleado: Employee = new Employee()
+
+//   constructor(private laptopServicio: LaptopService,private empleadoServicio: EmployeeService, private router: Router, private route:ActivatedRoute) {
+
+//   }
+
+//   ngOnInit(): void {
+    
+//   }
+
+
+//   guardarLaptopId() {
+//     this.laptop.userId = this.route.snapshot.params['id']
+//     this.empleadoServicio.registrarLaptopId(this.laptop.userId,this.laptop).pipe(
+//       tap(dato => {
+//         console.log(dato);
+//       }),
+//       catchError(error => {
+//         console.log(error);
+//         return throwError(() => error);
+//       })
+//     ).subscribe();
+//   }
+
+//   irALaListaDeEmpleados() {
+//     this.router.navigate(['/empleados'])
+//   }
+
+//   verDispositivos(id: number) {
+//     this.empleadoServicio.obtenerEmpleado(id).subscribe(dato => {
+//       this.empleado = dato;
+//       this.router.navigate(['lista-laptop-filtrada', this.empleado.id]);
+//     });
+//   }
+
+//   actualizarListaDeLaptops() {
+//     this.laptopServicio.obtenerListaLaptop().subscribe(datos => {
+//       this.laptops = datos;
+//     })
+//   }
+
+//   irALaListaDeLaptops() {
+//     this.router.navigate(['/laptops'])
+//   }
+
+//   onSubmit() {
+    
+    
+//     this.guardarLaptopId();
+//     this.actualizarListaDeLaptops()
+//     this.irALaListaDeLaptops()
+//   }
+
+// }
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LaptopService } from '../laptop.service';
 import { Laptop } from '../laptop';
-import { catchError, tap, throwError } from 'rxjs';
+import { catchError, tap, throwError, finalize } from 'rxjs';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
 import { ActivatedRoute } from '@angular/router';
@@ -12,26 +87,19 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './registrar-laptop.component.html',
   styleUrls: ['./registrar-laptop.component.css']
 })
-export class RegistrarLaptopComponent implements OnInit{
+export class RegistrarLaptopComponent implements OnInit {
 
-  laptop: Laptop = new Laptop()
-  laptops: Laptop[]
-  empleado: Employee = new Employee()
-  
-  //empleado: Employee = new Employee()
+  laptop: Laptop = new Laptop();
+  laptops: Laptop[];
+  empleado: Employee = new Employee();
 
-  constructor(private laptopServicio: LaptopService,private empleadoServicio: EmployeeService, private router: Router, private route:ActivatedRoute) {
+  constructor(private laptopServicio: LaptopService, private empleadoServicio: EmployeeService, private router: Router, private route: ActivatedRoute) {}
 
-  }
-
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void {}
 
   guardarLaptopId() {
-    this.laptop.userId = this.route.snapshot.params['id']
-    this.empleadoServicio.registrarLaptopId(this.laptop.userId,this.laptop).pipe(
+    this.laptop.userId = this.route.snapshot.params['id'];
+    return this.empleadoServicio.registrarLaptopId(this.laptop.userId, this.laptop).pipe(
       tap(dato => {
         console.log(dato);
       }),
@@ -39,11 +107,11 @@ export class RegistrarLaptopComponent implements OnInit{
         console.log(error);
         return throwError(() => error);
       })
-    ).subscribe();
+    );
   }
 
   irALaListaDeEmpleados() {
-    this.router.navigate(['/empleados'])
+    this.router.navigate(['/empleados']);
   }
 
   verDispositivos(id: number) {
@@ -56,19 +124,20 @@ export class RegistrarLaptopComponent implements OnInit{
   actualizarListaDeLaptops() {
     this.laptopServicio.obtenerListaLaptop().subscribe(datos => {
       this.laptops = datos;
-    })
+    });
   }
 
   irALaListaDeLaptops() {
-    this.router.navigate(['/laptops'])
+    this.router.navigate(['/laptops']);
   }
 
   onSubmit() {
-    
-    
-    this.guardarLaptopId();
-    this.actualizarListaDeLaptops()
-    this.irALaListaDeLaptops()
+    this.guardarLaptopId().pipe(
+      finalize(() => {
+        this.actualizarListaDeLaptops();
+        this.irALaListaDeLaptops();
+      })
+    ).subscribe();
   }
-
 }
+

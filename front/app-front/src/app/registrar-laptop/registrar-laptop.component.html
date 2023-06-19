@@ -1,35 +1,57 @@
 <div class="col-md-6 mx-auto">
-    <h3 class="text-center">Registro de laptop</h3>
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group m-3">
-            <label class ="mb-2">Modelo :</label>
-            <input type="text"
-            class="form-control"
-            id = "modelo"
-            [(ngModel)]="laptop.model"
-            name = "modelo">
-        </div>
-        <div class="form-group m-3">
-            <label class ="mb-2">Marca :</label>
-            <input type="text"
-            class="form-control"
-            id = "marca"
-            [(ngModel)]="laptop.marca"
-            name = "marca">
-        </div>
-        <!-- <div class="form-group m-3">
-            <label class="mb-2">Laptop :</label>
-            <select class="form-select" aria-label="Default select example" id="laptop" [(ngModel)]="laptop.userId" name="laptop">
-                <option selected disabled>Seleccione laptop</option>
-                <option *ngFor="let laptop of laptops" [value]="laptop.id">
-                {{laptop.id}} - {{laptop.marca}} {{laptop.model}}
-              </option>
-            </select>
-          </div> -->
-        <button class="btn btn-success m-3">Guardar</button>
-        <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeEmpleados()">Cancelar</button>
-        
-
-    </form>
+  <h3 class="text-center">Registro de laptop</h3>
+  <form (ngSubmit)="onSubmit()" #laptopForm="ngForm">
+      <div class="form-group m-3">
+          <label class="mb-2">Modelo:</label>
+          <input type="text" class="form-control" id="modelo" [(ngModel)]="laptop.model" name="modelo"
+              required minlength="1" maxlength="30" placeholder="Introduzca el modelo" #modelo="ngModel">
+          <div class="alert alert-danger" *ngIf="modelo.invalid && (modelo.dirty || modelo.touched)">
+              <div *ngIf="modelo.errors && modelo.errors['required']">El modelo es requerido.</div>
+              <div *ngIf="modelo.errors && modelo.errors['minlength']">El modelo debe tener al menos 4 caracteres.</div>
+              <div *ngIf="modelo.errors && modelo.errors['maxlength']">El modelo no debe superar los 30 caracteres.</div>
+          </div>
+      </div>
+      <div class="form-group m-3">
+          <label class="mb-2">Marca:</label>
+          <input type="text" class="form-control" id="marca" [(ngModel)]="laptop.marca" name="marca" required
+              minlength="1" maxlength="20" placeholder="Introduzca la marca" #marca="ngModel">
+          <div class="alert alert-danger" *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+              <div *ngIf="marca.errors && marca.errors['required']">La marca es requerida.</div>
+              <div *ngIf="marca.errors && marca.errors['minlength']">La marca debe tener al menos 4 caracteres.</div>
+              <div *ngIf="marca.errors && marca.errors['maxlength']">La marca no debe superar los 20 caracteres.</div>
+          </div>
+      </div>
+      <div class="form-group m-3">
+          <label class="mb-2">CPU:</label>
+          <input type="text" class="form-control" id="cpu" [(ngModel)]="laptop.cpu" name="cpu" required
+              minlength="2" maxlength="30" placeholder="Introduzca la CPU" #cpu="ngModel">
+          <div class="alert alert-danger" *ngIf="cpu.invalid && (cpu.dirty || cpu.touched)">
+              <div *ngIf="cpu.errors && cpu.errors['required']">La CPU es requerida.</div>
+              <div *ngIf="cpu.errors && cpu.errors['minlength']">La CPU debe tener al menos 2 caracteres.</div>
+              <div *ngIf="cpu.errors && cpu.errors['maxlength']">La CPU no debe superar los 30 caracteres.</div>
+          </div>
+      </div>
+      <div class="form-group m-3">
+          <label class="mb-2">RAM:</label>
+          <input type="text" class="form-control" id="ram" [(ngModel)]="laptop.ram" name="ram" required minlength="1"
+              maxlength="10" placeholder="Introduzca la RAM" #ram="ngModel">
+          <div class="alert alert-danger" *ngIf="ram.invalid && (ram.dirty || ram.touched)">
+              <div *ngIf="ram.errors && ram.errors['required']">La RAM es requerida.</div>
+              <div *ngIf="ram.errors && ram.errors['minlength']">La RAM debe tener al menos 1 carácter.</div>
+              <div *ngIf="ram.errors && ram.errors['maxlength']">La RAM no debe superar los 10 caracteres.</div>
+          </div>
+      </div>
+      <div class="form-group m-3">
+          <label class="mb-2">Disco Duro:</label>
+          <input type="text" class="form-control" id="discoDuro" [(ngModel)]="laptop.discoDuro" name="discoDuro"
+              required minlength="1" maxlength="50" placeholder="Introduzca el Disco Duro" #discoDuro="ngModel">
+          <div class="alert alert-danger" *ngIf="discoDuro.invalid && (discoDuro.dirty || discoDuro.touched)">
+              <div *ngIf="discoDuro.errors && discoDuro.errors['required']">El Disco Duro es requerido.</div>
+              <div *ngIf="discoDuro.errors && discoDuro.errors['minlength']">El Disco Duro debe tener al menos 1 carácter.</div>
+              <div *ngIf="discoDuro.errors && discoDuro.errors['maxlength']">El Disco Duro no debe superar los 50 caracteres.</div>
+          </div>
+      </div>
+      <button class="btn btn-success m-3" [disabled]="!laptopForm.form.valid">Guardar</button>
+      <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeLaptops()">Cancelar</button>
+  </form>
 </div>
-
