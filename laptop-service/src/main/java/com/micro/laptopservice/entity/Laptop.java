@@ -18,6 +18,9 @@ public class Laptop {
     private int Id;
     private String model;
     private String marca;
+    private String cpu;
+    private String ram;
+    private String discoDuro;
     private int userId;
 
 
