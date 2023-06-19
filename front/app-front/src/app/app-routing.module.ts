@@ -20,7 +20,7 @@ export const routes: Routes = [
   {path: "portada",component:PortadaComponent},
   {path: "laptops",component:ListaLaptopComponent},
   {path: "smartphones",component:ListaSmartphoneComponent},
-  {path: "", redirectTo: "empleados", pathMatch: "full"},
+  {path: "", redirectTo: "portada", pathMatch: "full"},
   {path: "registrar-empleado",component:RegistrarEmpleadoComponent},
   {path: "asignar-laptop-existente/:id",component:AsignarLaptopExistenteComponent},
   {path: "registrar-laptop",component:RegistrarLaptopSinempleadoComponent},

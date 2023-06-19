@@ -1,35 +1,26 @@
 <div class="col-md-6 mx-auto">
     <h3 class="text-center">Registro de smartphone</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #smartphoneForm="ngForm">
         <div class="form-group m-3">
-            <label class ="mb-2">Modelo :</label>
-            <input type="text"
-            class="form-control"
-            id = "modelo"
-            [(ngModel)]="smartphone.model"
-            name = "modelo">
+            <label class="mb-2">Modelo:</label>
+            <input type="text" class="form-control" id="modelo" [(ngModel)]="smartphone.model" name="modelo" required>
         </div>
         <div class="form-group m-3">
-            <label class ="mb-2">Marca :</label>
-            <input type="text"
-            class="form-control"
-            id = "marca"
-            [(ngModel)]="smartphone.marca"
-            name = "marca">
+            <label class="mb-2">Marca:</label>
+            <input type="text" class="form-control" id="marca" [(ngModel)]="smartphone.marca" name="marca" required>
         </div>
-        <!-- <div class="form-group m-3">
-            <label class ="mb-2">Id Empleado :</label>
-            <input type="number"
-            class="form-control"
-            id = "userId"
-            [(ngModel)]="laptop.userId"
-            [(ngModel)]="empleado.id"
-            name = "userId">
-        </div> -->
-        <button class="btn btn-success m-3">Guardar</button>
-        
-
+        <div class="form-group m-3">
+            <label class="mb-2">CPU:</label>
+            <input type="text" class="form-control" id="cpu" [(ngModel)]="smartphone.cpu" name="cpu" required>
+        </div>
+        <div class="form-group m-3">
+            <label class="mb-2">RAM:</label>
+            <input type="text" class="form-control" id="ram" [(ngModel)]="smartphone.ram" name="ram" required>
+        </div>
+        <div class="form-group m-3">
+            <label class="mb-2">Disco Duro:</label>
+            <input type="text" class="form-control" id="discoDuro" [(ngModel)]="smartphone.discoDuro" name="discoDuro" required>
+        </div>
+        <button class="btn btn-success m-3" [disabled]="!smartphoneForm.valid">Guardar</button>
     </form>
 </div>
-
-

@@ -1,44 +1,42 @@
 <div class="col-md-6 mx-auto">
     <h3 class="text-center">Registro de smartphone</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #smartphoneForm="ngForm">
         <div class="form-group m-3">
-            <label class ="mb-2">Modelo :</label>
-            <input type="text"
-            class="form-control"
-            id = "model"
-            [(ngModel)]="smartphone.model"
-            name = "model">
+            <label class="mb-2">Modelo:</label>
+            <input type="text" class="form-control" id="modelo" [(ngModel)]="smartphone.model" name="modelo" required>
         </div>
-        <!-- <div class="form-group m-3">
-            <label class ="mb-2">Marca :</label>
-            <input type="text"
-            class="form-control"
-            id = "marca"
-            [(ngModel)]="laptop.marca"
-            name = "marca">
-        </div> -->
         <div class="form-group m-3">
-            <label class="mb-2">Marca :</label>
-            <select class="form-select" aria-label="Default select example" id="marca" [(ngModel)]="smartphone.marca" name="marca">
+            <label class="mb-2">Marca:</label>
+            <select class="form-select" aria-label="Default select example" id="marca" [(ngModel)]="smartphone.marca" name="marca" required>
                 <option selected disabled>Seleccione marca</option>
                 <option value="Apple">Apple</option>
-                <option value="Lenovo">Motorola</option>
-                <option value="Acer">Samsung</option>
-                <option value="HP">Xiaomi</option>
+                <option value="Motorola">Motorola</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Xiaomi">Xiaomi</option>
             </select>
-          </div>
+        </div>
         <div class="form-group m-3">
-            <label class="mb-2">Empleado :</label>
-            <select class="form-select" aria-label="Default select example" id="empleado" [(ngModel)]="smartphone.userId" name="empleado">
+            <label class="mb-2">CPU:</label>
+            <input type="text" class="form-control" id="cpu" [(ngModel)]="smartphone.cpu" name="cpu" required>
+        </div>
+        <div class="form-group m-3">
+            <label class="mb-2">RAM:</label>
+            <input type="text" class="form-control" id="ram" [(ngModel)]="smartphone.ram" name="ram" required>
+        </div>
+        <div class="form-group m-3">
+            <label class="mb-2">Disco Duro:</label>
+            <input type="text" class="form-control" id="discoDuro" [(ngModel)]="smartphone.discoDuro" name="discoDuro" required>
+        </div>
+        <div class="form-group m-3">
+            <label class="mb-2">Empleado:</label>
+            <select class="form-select" aria-label="Default select example" id="empleado" [(ngModel)]="smartphone.userId" name="empleado" required>
                 <option selected disabled>Seleccione empleado</option>
                 <option *ngFor="let empleado of empleados" [value]="empleado.id">
-                {{empleado.id}} - {{empleado.name}} {{empleado.apellidos}}
-              </option>
+                    {{empleado.id}} - {{empleado.name}} {{empleado.apellidos}}
+                </option>
             </select>
-          </div>
-        <button class="btn btn-success m-3">Guardar</button>
+        </div>
+        <button class="btn btn-success m-3" [disabled]="!smartphoneForm.form.valid">Guardar</button>
         <button type="button" class="btn btn-danger m-3" (click)="irALaListaDeSmartphone()">Cancelar</button>
-
     </form>
 </div>
-

@@ -1,41 +1,41 @@
-
-  <div style="margin-bottom: 20px" >
-<h2>Lista de smartphone</h2>
+<div style="margin-bottom: 20px">
+  <h2>Lista de smartphones</h2>
 </div>
-<div style="margin-bottom: 20px; margin-top: 20px" >
-    <input [(ngModel)]="filtro" placeholder="Buscar smartphones" class="form-control" style="width: 33.33%;">
-  </div>
+<div style="margin-bottom: 20px; margin-top: 20px">
+  <input [(ngModel)]="filtro" placeholder="Buscar smartphones" class="form-control" style="width: 33.33%;">
+</div>
 <table class="table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>id</th>
-            <th>marca</th>
-            <th>modelo</th>
-            <th>userId</th>
-            <th>acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let smartphone of smartphones ">
-            <td>{{smartphone.id}}</td>
-            <td>{{smartphone.marca}}</td>
-            <td>{{smartphone.model}}</td>
-            <td>{{smartphone.userId === 0 ? 'Disponible' : smartphone.userId}}</td>
-              <td>
-                <!-- <button (click)="actualizarEmpleado(employee.id)" class="btn btn-info">Actualizar</button>  -->
-                <button (click)="eliminarS(smartphone.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
-                <button (click)="verD(smartphone.userId)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
-                <!-- <button (click)="verD(employee.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button> -->
-            </td>  
-        </tr>
-    </tbody>
-
+  <thead class="table-dark">
+      <tr>
+          <th>id</th>
+          <th>marca</th>
+          <th>modelo</th>
+          <th>userId</th>
+          <th>CPU</th>
+          <th>RAM</th>
+          <th>Disco Duro</th>
+          <th>acciones</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let smartphone of smartphones">
+          <td>{{smartphone.id}}</td>
+          <td>{{smartphone.marca}}</td>
+          <td>{{smartphone.model}}</td>
+          <td>{{smartphone.userId === 0 ? 'Disponible' : smartphone.userId}}</td>
+          <td>{{smartphone.cpu}}</td>
+          <td>{{smartphone.ram}}</td>
+          <td>{{smartphone.discoDuro}}</td>
+          <td>
+              <button (click)="eliminarS(smartphone.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+              <button (click)="verD(smartphone.userId)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+          </td>
+      </tr>
+  </tbody>
 </table>
 <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
-    <button (click)="crearSmartphone()" class="btn btn-primary">Nuevo smartphone</button>
-    <button routerLink="/portada" class="btn btn-secondary">Volver</button>
-  </div>
+  <button (click)="crearSmartphone()" class="btn btn-primary">Nuevo smartphone</button>
+  <button routerLink="/portada" class="btn btn-secondary">Volver</button>
+</div>
 
-  <mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)">
-  </mat-paginator>
-
+<mat-paginator [length]="totalLength" [pageSize]="10" (page)="changePage($event)"></mat-paginator>

@@ -60,7 +60,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, tap, throwError, concatMap } from 'rxjs';
+import { catchError, tap, throwError, concatMap, finalize } from 'rxjs';
 import { EmployeeService } from '../employee.service';
 import { Smartphone } from '../smartphone';
 import { SmartphoneService } from '../smartphone.service';
@@ -111,8 +111,11 @@ export class RegistrarSmartphoneComponent implements OnInit {
 
   onSubmit() {
     this.guardarSmartphoneId().pipe(
-      concatMap(() => this.actualizarListaDeSmartphone())
-    ).subscribe(() => this.irALaListaDeSmartphone());
+      finalize(() => {
+        this.actualizarListaDeSmartphone();
+        this.irALaListaDeSmartphone();
+      })
+    ).subscribe();
   }
 
 }
