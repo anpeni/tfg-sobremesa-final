@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
 import { catchError, tap, throwError } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-empleado',
@@ -27,16 +28,29 @@ export class RegistrarEmpleadoComponent implements OnInit {
   guardarEmpleado() {
     this.empleadoServicio.registrarEmpleado(this.empleado).pipe(
       tap(dato => {
-        console.log(dato);
+        if (dato) {
+          Swal.fire({
+            title: 'Empleado creado',
+            text: 'El empleado ha sido creado exitosamente',
+            icon: 'success'
+          });
+        } else {
+          Swal.fire({
+            title: 'Error al crear empleado',
+            text: 'Ocurrió un error al crear el empleado. Por favor, intenta de nuevo',
+            icon: 'error'
+          });
+        }
       }),
       catchError(error => {
-        console.log(error);
+        console.error('Error: ' + error);
         return throwError(() => error);
       })
     ).subscribe();
-    this.actualizarListaDeEmpleados()
-    this.irALaListaDeEmpleados()
+    this.actualizarListaDeEmpleados();
+    this.irALaListaDeEmpleados();
   }
+
 
   irALaListaDeEmpleados() {
     this.router.navigate(['/empleados'])

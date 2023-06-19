@@ -157,11 +157,17 @@ export class ActualizarEmpleadoComponent implements OnInit {
         console.log(error);
         return throwError(() => error);
       })
-    ).subscribe();
-    this.actualizarListaDeEmpleados()
-    this.actualizarListaDeEmpleados()
-    this.irALaListaDeEmpleados()
-  }
+    ).subscribe(() => {
+      Swal.fire({
+        title: '¡Hecho!',
+        text: 'El empleado ha sido actualizado exitosamente',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+      this.actualizarListaDeEmpleados();
+      this.irALaListaDeEmpleados();
+    });
+}
 
   irALaListaDeEmpleados() {
     this.router.navigate(['/empleados'])
