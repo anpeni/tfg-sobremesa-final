@@ -76,7 +76,7 @@ public class LaptopController {
 
         if (laptopNew == null) return ResponseEntity.notFound().build();
 
-        laptopNew.setUserId(99);
+        laptopNew.setUserId(0);
 
 
         Laptop laptopActualizado = laptopService.save(laptopNew);

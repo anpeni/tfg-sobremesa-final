@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: presentacion-03
+          default-label: presentacion-04-alarmas-terminadas
           uri: https://github.com/anpeni/tfg-sobremesa-final
           search-paths: config-data
   application:
