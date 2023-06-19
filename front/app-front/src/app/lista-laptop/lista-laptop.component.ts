@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LaptopService } from '../laptop.service';
 import { EmployeeService } from '../employee.service';
 import { PageEvent } from '@angular/material/paginator';
+import { catchError, tap, throwError, concatMap } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-laptop',
@@ -39,11 +41,35 @@ export class ListaLaptopComponent implements OnInit{
 
 
   eliminarL(id: number) {
-    this.employeeService.eliminarLaptop(id).subscribe(dato => {
-      console.log(dato);
-      this.obtenerLaptop()
-
-    })}
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Se eliminará la laptop',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'No, cancelar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.employeeService.eliminarLaptop(id).subscribe(
+          dato => {
+            console.log(dato);
+            Swal.fire(
+              'Eliminado!',
+              'La laptop ha sido eliminada.',
+              'success'
+            );
+           
+            this.obtenerLaptop();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.obtenerLaptop()

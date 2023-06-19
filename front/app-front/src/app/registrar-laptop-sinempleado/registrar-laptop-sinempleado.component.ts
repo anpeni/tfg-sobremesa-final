@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, tap, throwError } from 'rxjs';
 import { LaptopService } from '../laptop.service';
 import { Employee } from '../employee';
+import Swal from 'sweetalert2';
 
 
 
@@ -26,16 +27,30 @@ listaLaptop: Laptop[]
   guardarLaptop() {
     this.laptopServicio.registrarLaptop(this.laptop).pipe(
       tap(dato => {
-        console.log(dato);
+        if (dato) {
+          Swal.fire({
+            title: 'Laptop registrada',
+            text: 'La laptop ha sido registrada exitosamente',
+            icon: 'success'
+          });
+        } else {
+          Swal.fire({
+            title: 'Error al registrar la laptop',
+            text: 'Ocurrió un error al registrar la laptop. Por favor, intenta de nuevo',
+            icon: 'error'
+          });
+        }
       }),
       catchError(error => {
-        console.log(error);
+        console.error('Error: ' + error);
         return throwError(() => error);
       })
     ).subscribe();
-    this.actualizarListaDeLaptop()
-    this.irALaListaDeLaptops()
+    this.actualizarListaDeLaptop();
+    this.irALaListaDeLaptops();
   }
+
+  
 
   obtenerEmpleados() {
     this.empleadoServicio.obtenerListaEmpleados().subscribe(

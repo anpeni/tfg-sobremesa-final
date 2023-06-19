@@ -80,6 +80,7 @@ import { Smartphone } from '../smartphone';
 import { SmartphoneService } from '../smartphone.service';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-smartphone-sinempleado',
@@ -97,7 +98,19 @@ export class RegistrarSmartphoneSinempleadoComponent implements OnInit {
   guardarSmartphone() {
     return this.smartphoneServicio.registrarSmartphone(this.smartphone).pipe(
       tap(dato => {
-        console.log(dato);
+        if (dato) {
+          Swal.fire({
+            title: 'Smartphone creado',
+            text: 'El smartphone ha sido creado exitosamente',
+            icon: 'success'
+          });
+        } else {
+          Swal.fire({
+            title: 'Error al crear el smartphone',
+            text: 'Ocurrió un error al crear el smartphone. Por favor, intenta de nuevo',
+            icon: 'error'
+          });
+        }
       }),
       catchError(error => {
         console.log(error);
@@ -105,6 +118,8 @@ export class RegistrarSmartphoneSinempleadoComponent implements OnInit {
       })
     );
   }
+
+  
 
   obtenerEmpleados() {
     this.empleadoServicio.obtenerListaEmpleados().subscribe(

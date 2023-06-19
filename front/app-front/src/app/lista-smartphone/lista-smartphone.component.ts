@@ -4,6 +4,8 @@ import { Smartphone } from '../smartphone';
 import { SmartphoneService } from '../smartphone.service';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { catchError, tap, throwError, concatMap } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-smartphone',
@@ -38,11 +40,34 @@ export class ListaSmartphoneComponent implements OnInit{
 
 
   eliminarS(id: number) {
-    this.employeeService.eliminarSmartphone(id).subscribe(dato => {
-      console.log(dato);
-      this.obtenerSmartphone()
-
-    })}
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Se eliminará el smartphone',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'No, cancelar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.employeeService.eliminarSmartphone(id).subscribe(
+          dato => {
+            console.log(dato);
+            Swal.fire(
+              'Eliminado!',
+              'El smartphone ha sido eliminado.',
+              'success'
+            );
+            this.obtenerSmartphone();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.obtenerSmartphone()
