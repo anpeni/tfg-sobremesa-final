@@ -16,21 +16,32 @@ export class ListaEmpleadosComponent implements OnInit {
    empleados: Employee[] = [];
    _filtro = '';
    totalLength = 0; 
-   pageSize = 10; 
-   pageSizeOptions: number[] = [5, 10, 20]; 
+   pageSize = 5; 
+   //pageSizeOptions: number[] = [5, 10, 20]; 
    pageIndex = 0;
+   displayedEmpleados: Employee[] = []; 
 
   constructor(private employeeService: EmployeeService,  private router: Router) { }
 
-  private obtenerEmpleados() {
+  // private obtenerEmpleados() {
+  //   this.employeeService.obtenerListaEmpleados().subscribe(dato => {
+  //     this.originalEmpleados = dato;
+  //     this.totalLength = dato.length;
+  //     this.aplicarFiltro();
+
+  //   })
+  // }
+
+  private obtenerEmpleados(): void {
     this.employeeService.obtenerListaEmpleados().subscribe(dato => {
       this.originalEmpleados = dato;
-      //this.empleados = dato;
+      this.empleados = [...this.originalEmpleados]; // Copia los datos a `empleados` inmediatamente después de obtenerlos
       this.totalLength = dato.length;
       this.aplicarFiltro();
-      //this.updatePage();
+      this.updatePage();
     })
   }
+  
 
   ngOnInit(): void {
     this.obtenerEmpleados();
@@ -53,39 +64,54 @@ export class ListaEmpleadosComponent implements OnInit {
   }
 
   eliminarE(id: number) {
-    this.employeeService.eliminarEmpleado(id).subscribe(dato => {
-      console.log(dato);
-      this.obtenerEmpleados()
-    })
-  }
+    
+    this.employeeService.eliminarEmpleado(id).subscribe(
+      data => {
+        console.log(data);
+        this.obtenerEmpleados();
+        //this.updatePage();
+      },
+      error => {
+        console.log('Error:', error);  // Log any errors to the console
+      }
+    );
+}
+
+eliminarEE(id: number) {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Se eliminará al empleado",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminar!',
+    cancelButtonText: 'No, cancelar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.employeeService.eliminarEmpleado(id).subscribe(
+        dato => {
+          console.log(dato);
+          Swal.fire(
+            'Eliminado!',
+            'El empleado ha sido eliminado.',
+            'success'
+          );
+          this.obtenerEmpleados();
+          //this.actualizarListaEmpleados();
+          //this.irALaListaDeEmpleados()
+        },
+        error => {
+          console.log(error);
+        });
 
 
-  // eliminarE(id: number) {
-  //   Swal.fire({
-  //     title: '¿Estás seguro?',
-  //     text: "Se eliminará al empleado",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Sí, eliminar!',
-  //     cancelButtonText: 'No, cancelar!'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.employeeService.eliminarEmpleado(id).subscribe(dato => {
-  //         console.log(dato);
-  //         this.obtenerEmpleados();
-  //         Swal.fire(
-  //           'Eliminado!',
-  //           'El empleado ha sido eliminado.',
-  //           'success'
-  //         )
-  //       })
-  //     }
-  //   })
-  // }
-  
-  
+    }
+  });
+
+}
+
+
   verD(id: number) {
     this.router.navigate(['empleado-detalles', id])
   }
@@ -109,20 +135,21 @@ export class ListaEmpleadosComponent implements OnInit {
       empleado => empleado.name.toLowerCase().includes(filtroEnMinusculas) || 
                   empleado.apellidos.toLowerCase().includes(filtroEnMinusculas) ||
                   empleado.email.toLowerCase().includes(filtroEnMinusculas));
-   // this.totalLength = this.empleados.length;
+    this.totalLength = this.empleados.length;
+    this.pageIndex = 0;
+    this.updatePage();
   }
 
   updatePage() {
     const start = this.pageIndex * this.pageSize;
     const end = start + this.pageSize;
-    this.empleados = this.empleados.slice(start, end);
-    //this.obtenerEmpleados();
+    this.displayedEmpleados = this.empleados.slice(start, end); 
   }
 
   changePage(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.updatePage();
-    this.obtenerEmpleados();
   }
+
 }

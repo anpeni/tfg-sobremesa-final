@@ -210,6 +210,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
               'El empleado ha sido eliminado.',
               'success'
             );
+            
             this.actualizarListaEmpleados();
             this.irALaListaDeEmpleados()
           },
