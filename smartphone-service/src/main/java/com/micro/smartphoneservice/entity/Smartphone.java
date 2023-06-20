@@ -18,6 +18,9 @@ public class Smartphone {
     private int Id;
     private String marca;
     private String model;
+    private String cpu;
+    private String ram;
+    private String discoDuro;
     private int userId;
 
 
